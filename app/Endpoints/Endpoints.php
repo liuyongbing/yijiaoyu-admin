@@ -8,31 +8,43 @@ class Endpoints
 {
     const API_VERSION = 1;
     
+    public static function getApi()
+    {
+        return static::getApi();
+    }
+    
     public static function list($data)
     {
-        $response = ApiClient::get(static::API, $data);
+        $response = ApiClient::get(static::getApi(), $data);
 
         return static::response($response);
     }
 
     public static function detail($id)
     {
-        $response = ApiClient::get(static::API . '/' . $id);
+        $response = ApiClient::get(static::getApi() . '/' . $id);
         
         return static::response($response);
     }
 
     public static function store($data)
     {
-        $response = ApiClient::post(static::API, $data, static::headers());
+        $response = ApiClient::post(static::getApi(), $data, static::headers());
         
         return static::response($response);
     }
 
     public static function update($id, $data)
     {
-        $url = static::API . '/' . $id;
+        $url = static::getApi() . '/' . $id;
         $response = ApiClient::put($url, $data, static::headers());
+        
+        return static::response($response);
+    }
+    
+    public static function upload($data)
+    {
+        $response = ApiClient::upload(static::getApi(), $data, static::headers());
         
         return static::response($response);
     }

@@ -42,9 +42,6 @@ class EndpointClient
 
     public function put($uri, $parameters, $headers = [])
     {
-var_dump($uri);
-echo http_build_query($parameters);
-exit();
         $contents = $this->getContents($uri, [
             'form_params' => $parameters,
             'headers' => $headers
@@ -57,6 +54,16 @@ exit();
     {
         $contents = $this->getContents($uri, ['query' => $parameters], 'DELETE');
 
+        return $contents;
+    }
+    
+    public function upload($uri, $parameters, $headers = [])
+    {
+        $contents = $this->getContents($uri, [
+            'multipart' => [$parameters],
+            'headers' => $headers
+        ], 'POST');
+        
         return $contents;
     }
 

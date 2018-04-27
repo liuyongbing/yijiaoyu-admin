@@ -23,8 +23,6 @@ Route::group(['namespace' => 'Auth'], function () {
     Route::get('/logout', 'LoginController@logout')->name('logout');
 });
 
-//学员资料
-Route::resource('students', 'StudentController');
 //用户
 Route::resource('users', 'UsersController');
 //班级
@@ -33,3 +31,6 @@ Route::resource('grades', 'GradesController');
 Route::resource('courses', 'CoursesController');
 //课程
 Route::resource('teachings', 'TeachingsController');
+//附件上传
+Route::post('/attachment/upload', 'AttachmentController@upload')->name('attachment.upload');
+Route::get('/attachment/demo', 'AttachmentController@demo')->name('attachment.demo');

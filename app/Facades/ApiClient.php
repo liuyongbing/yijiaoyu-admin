@@ -2,6 +2,8 @@
 
 namespace App\Facades;
 
+use App\Endpoints\EndpointClient;
+
 class ApiClient extends FacadeBase
 {
     /**
