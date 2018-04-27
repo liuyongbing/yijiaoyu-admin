@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Constants\Dictionary;
 use App\Repositories\GradesRepository;
 use Illuminate\Http\Request;
 
@@ -15,14 +16,20 @@ class GradesController extends Controller
      */
     public function index(Request $request, GradesRepository $repository)
     {
-        $results = $repository->list();
+        $page = $request->input('page', 1);
+        $size = Dictionary::PAGE_SIZE;
+        
+        $results = $repository->list([], $page, $size);
         
         return view('grade.index', [
             'items'         => isset($results['list']) ? $results['list'] : [],
             'filters'       => [],
-            'page_num'      => 2,
-            'itemsCount'    => isset($results['total']) ? $results['total'] : 0,
-            'pageSize'      => 20,
+            'pagination' => [
+                'route' => 'grades.index',
+                'page' => $page,
+                'size' => $size,
+                'total' => isset($results['total']) ? $results['total'] : 0
+            ]
         ]);
     }
     
@@ -93,6 +100,6 @@ class GradesController extends Controller
      */
     public function show($id, GradesRepository $repository)
     {
-        
+        return $repository->detail($id);
     }
 }

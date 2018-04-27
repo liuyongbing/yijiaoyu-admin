@@ -42,9 +42,10 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th>名称</th>
-                                    <th>排序</th>
-                                    <th>操作</th>
+                                    <th>{{ trans('inputs.name') }}</th>
+                                    <th>{{ trans('inputs.sort') }}</th>
+                                    <th>{{ trans('inputs.status') }}</th>
+                                    <th>{{ trans('inputs.operation') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -52,11 +53,11 @@
                                     <tr>
                                         <td><a title="{{$item['title']}}" href="{{ route('grades.edit', $item['id']) }}" target="_blank">{{ $item['title'] }}</a></td>
                                         <td>{{ $item['sort'] }}</td>
+                                        <td>{{ $item['status_desc'] }}</td>
                                         <td>
-                                            <a href="{{ route('grades.edit', $item['id']) }}" target="_blank">
-                                                <button class="btn btn-sm btn-primary">
-                                                    编辑
-                                                </button>
+                                            <a href="{{ route('grades.edit', $item['id']) }}" target="_blank" class="btn btn-sm btn-primary">
+                                                <i class="glyphicon glyphicon-edit glyphicon-white"></i>
+                                                    {{ trans('actions.edit') }}
                                             </a>
                                         </td>
                                     </tr>
@@ -67,7 +68,13 @@
                 </div>
             </div>
         </div>
-        @include('layouts.pagination', ['routeName'=>'grades.index', 'count'=>$itemsCount, 'page'=>$page_num, 'size' => $pageSize, 'filters' => $filters])
+        @include('layouts.pagination', [
+            'route' => $pagination['route'],
+            'total' => $pagination['total'],
+            'page' => $pagination['page'],
+            'size' => $pagination['size'],
+            'filters' => $filters
+        ])
     </div>
 @endsection
 

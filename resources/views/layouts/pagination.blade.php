@@ -1,5 +1,5 @@
 <?php $size = isset($size) ? $size : 10; ?>
-<?php $totalPage = ceil($count / max($size, 1)); ?>
+<?php $totalPage = ceil($total / max($size, 1)); ?>
 <?php $filters = isset($filters) ? $filters : []; ?>
 
 <div class="row paginate-bottom">
@@ -11,7 +11,7 @@
             <ul class="pagination">
                 @if ($page > 1)
                     <li>
-                        <a href="{{ route($routeName, array_merge($filters, ['page_num'=>1])) }}">
+                        <a href="{{ route($route, array_merge($filters, ['page'=>1])) }}">
                             <i class="glyphicon glyphicon-step-backward"></i>
                         </a>
                     </li>
@@ -19,7 +19,7 @@
 
                 @if ($page != 1)
                     <li class="prev">
-                        <a href="{{ route($routeName, array_merge($filters, ['page_num'=>$page-1])) }}">
+                        <a href="{{ route($route, array_merge($filters, ['page'=>$page-1])) }}">
                             <i class="glyphicon glyphicon-chevron-left"></i>
                         </a>
                     </li>
@@ -36,21 +36,21 @@
                     @endif
 
                     <li @if ($i == $page) class="active" @endif>
-                        <a href="{{ route($routeName, array_merge($filters, ['page_num'=>$i])) }}">{{ $i }}</a>
+                        <a href="{{ route($route, array_merge($filters, ['page'=>$i])) }}">{{ $i }}</a>
                     </li>
 
                 @endfor
 
                 @if ($page < $totalPage)
                     <li class="next">
-                        <a href="{{ route($routeName, array_merge($filters, ['page_num'=>$page+1])) }}">
+                        <a href="{{ route($route, array_merge($filters, ['page'=>$page+1])) }}">
                             <i class="glyphicon glyphicon-chevron-right"></i>
                         </a>
                     </li>
                 @endif
                 @if ($page != $totalPage && $totalPage !=0)
                     <li>
-                        <a href="{{ route($routeName, array_merge($filters, ['page_num'=>$totalPage])) }}">
+                        <a href="{{ route($route, array_merge($filters, ['page'=>$totalPage])) }}">
                             <i class="glyphicon glyphicon-step-forward"></i>
                         </a>
                     </li>

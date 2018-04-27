@@ -13,8 +13,10 @@ class GradesRepository extends Repository
      * @param array $params
      * @return array
      */
-    public function list($params = [])
+    public function list($params = [], $page = 1, $size = 10)
     {
+        $params['page'] = $page;
+        $params['size'] = $size;
         return GradesEndpoint::list($params);
     }
     
