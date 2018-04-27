@@ -3,7 +3,6 @@
 @section('title', '新闻管理 - 编辑新闻')
 
 @section('content')
-    @include('document.left_navbar', ['leftNavbarActive'=>'news_list', 'type' => 'news'])
 
     <div class="col-md-12">
         <div class="row">
@@ -21,14 +20,11 @@
                 <div class="panel panel-default bootstrap-admin-no-table-panel">
                     <div class="panel-heading">
                         <div class="text-muted bootstrap-admin-box-title">
-                            {{ trans('actions.edit') }}
+                            {{ trans('actions.add') }}
                         </div>
                     </div>
                     <div class="bootstrap-admin-no-table-panel-content bootstrap-admin-panel-content collapse in">
-                        <form class="form-horizontal" action="{{ route('grades.update', ['id' => $item['id']]) }}" method="post" enctype="multipart/form-data">
-                        
-                            <input name="_method" type="hidden" value="PUT">
-
+                        <form class="form-horizontal" action="{{ route('grades.store') }}" method="post" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             
                             <fieldset>

@@ -26,7 +26,7 @@
         <div class="row">
             <div class="col-md-12">
                 <a href="{{ route('grades.create') }}" class="btn btn-success btn-sm">
-                    <i class="glyphicon glyphicon-plus glyphicon-white"></i> 新增
+                    <i class="glyphicon glyphicon-plus glyphicon-white"></i> {{ trans('actions.add') }}
                 </a>
             </div>
         </div>
@@ -35,7 +35,7 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <div class="text-muted bootstrap-admin-box-title">列表</div>
+                        <div class="text-muted bootstrap-admin-box-title">{{ trans('actions.list') }}</div>
                         <div class="pull-right"><span class="badge"></span></div>
                     </div>
                     <div class="bootstrap-admin-panel-content">

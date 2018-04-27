@@ -27,7 +27,7 @@ class GradesController extends Controller
     }
     
     /**
-     * 修改
+     * 修改 view
      * 
      * @param int $id
      * @param GradesRepository $repository
@@ -42,7 +42,7 @@ class GradesController extends Controller
     }
     
     /**
-     * 修改提交
+     * 修改 put
      * 
      * @param Request $request
      * @param GradesRepository $repository
@@ -54,12 +54,35 @@ class GradesController extends Controller
 
         $response = $repository->update($id, $data);
 
-        return redirect(route('grades.index'));
+        return redirect()->route('grades.index');
     }
     
+    /**
+     * 新增
+     * 
+     * @param Request $request
+     * @param GradesRepository $repository
+     */
     public function create(Request $request, GradesRepository $repository)
     {
-        return __METHOD__;
+        return view('grade.add', [
+            'item' => []
+        ]);
+    }
+    
+    /**
+     * 新增 post
+     * 
+     * @param Request $request
+     * @param GradesRepository $repository
+     */
+    public function store(Request $request, GradesRepository $repository)
+    {
+        $data = $request->input('Record');
+        
+        $response = $repository->store($data);
+        
+        return redirect()->route('grades.index');
     }
     
     /**
