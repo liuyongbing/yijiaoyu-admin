@@ -3,17 +3,16 @@
 @section('title', '新闻管理 - 新闻列表')
 
 @section('content')
-    @include('document.left_navbar', ['leftNavbarActive'=>'news_list', 'type' => 'news'])
 
-    <div class="col-md-10">
-        <div class="row">
+    <div class="col-md-12">
+        <!--div class="row">
             <div class="col-lg-12">
                 <div class="page-header">
-                    <h1>新闻</h1>
+                    <h1>班级</h1>
                 </div>
             </div>
-        </div>
-        <div class="row">
+        </div-->
+        <!--div class="row">
             <div class="col-md-12">
                 <form class="form-inline" action="{{ route('grades.index') }}">
                     <i class="glyphicon glyphicon-search"></i>
@@ -23,11 +22,11 @@
                 </form>
             </div>
         </div>
-        <br />
+        <br /-->
         <div class="row">
             <div class="col-md-12">
                 <a href="{{ route('grades.create') }}" class="btn btn-success btn-sm">
-                    <i class="glyphicon glyphicon-plus glyphicon-white"></i> 新增新闻
+                    <i class="glyphicon glyphicon-plus glyphicon-white"></i> 新增
                 </a>
             </div>
         </div>

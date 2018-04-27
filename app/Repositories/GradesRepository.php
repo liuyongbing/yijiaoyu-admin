@@ -16,4 +16,9 @@ class GradesRepository extends Repository
     {
         return GradesEndpoint::detail($id);
     }
+    
+    public function update($id, $params = [])
+    {
+        return GradesEndpoint::update($id, $params);
+    }
 }

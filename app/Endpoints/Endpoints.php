@@ -10,7 +10,7 @@ class Endpoints
     
     public static function getApi()
     {
-        return static::getApi();
+        return static::API;
     }
     
     public static function list($data)
