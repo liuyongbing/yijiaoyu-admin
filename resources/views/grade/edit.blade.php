@@ -1,9 +1,8 @@
-@extends('document.document')
+@extends('layouts.main')
 
 @section('title', '新闻管理 - 编辑新闻')
 
 @section('content')
-    @include('document.left_navbar', ['leftNavbarActive'=>'news_list', 'type' => 'news'])
 
     <div class="col-md-12">
         <div class="row">

@@ -1,4 +1,4 @@
-@extends('document.document')
+@extends('layouts.main')
 
 @section('title', '新闻管理 - 编辑新闻')
 
