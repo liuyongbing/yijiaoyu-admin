@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Constants\Dictionary;
 use App\Repositories\GradesRepository;
 use Illuminate\Http\Request;
+use App\Repositories\AttachmentRepository;
 
 class GradesController extends Controller
 {
@@ -55,10 +56,12 @@ class GradesController extends Controller
      * @param GradesRepository $repository
      * @param int $id
      */
-    public function update(Request $request, GradesRepository $repository, $id)
+    public function update(Request $request, GradesRepository $repository,
+            AttachmentRepository $attachmentRepository, $id)
     {
         $data = $request->input('Record');
-
+        $data['image'] = $this->upload($request, $attachmentRepository);
+        
         $response = $repository->update($id, $data);
 
         return redirect()->route('grades.index');
@@ -73,7 +76,9 @@ class GradesController extends Controller
     public function create(Request $request, GradesRepository $repository)
     {
         return view('grade.add', [
-            'item' => []
+            'item' => [
+                'status' => 1
+            ]
         ]);
     }
     
@@ -83,9 +88,11 @@ class GradesController extends Controller
      * @param Request $request
      * @param GradesRepository $repository
      */
-    public function store(Request $request, GradesRepository $repository)
+    public function store(Request $request, GradesRepository $repository,
+            AttachmentRepository $attachmentRepository)
     {
         $data = $request->input('Record');
+        $data['image'] = $this->upload($request, $attachmentRepository);
         
         $response = $repository->store($data);
         

@@ -28,30 +28,8 @@
                         <form class="form-horizontal" action="{{ route('grades.update', ['id' => $item['id']]) }}" method="post" enctype="multipart/form-data">
                         
                             <input name="_method" type="hidden" value="PUT">
-
-                            {{ csrf_field() }}
                             
-                            <fieldset>
-                                <div class="form-group">
-                                    <!--标题-->
-                                    @include('form.title', ['item' => $item])
-                                </div>
-                                
-                                <div class="form-group">
-                                    <!--排序-->
-                                    @include('form.sort', ['item' => $item])
-                                </div>
-                                
-                                <div class="form-group">
-                                    <!--对应翻译文章ID-->
-                                </div>
-                                
-                                <div class="form-group">
-                                    <!--submit buttons-->
-                                    @include('form.submit', ['route' => 'grades.index'])
-                                </div>
-                                
-                            </fieldset>
+                            @include('grade.inputs', ['item' => $item])
                         </form>
                     </div>
                 </div>

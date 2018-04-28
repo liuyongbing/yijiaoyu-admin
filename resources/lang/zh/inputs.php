@@ -13,6 +13,11 @@ return [
     'title' => '标题',
     'sort' => '排序',
     'status' => '状态',
+    'status_yes' => '有效',
+    'status_no' => '无效',
     'operation' => '操作',
-    //'' => '',
+    'image' => '图片',
+    'image_view' => '图片预览',
+        //'' => '',
+        //'' => '',
 ];
