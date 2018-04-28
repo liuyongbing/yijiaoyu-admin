@@ -1,6 +1,6 @@
-@extends('document.document')
+@extends('layouts.main')
 
-@section('title', '新闻管理 - 新闻列表')
+@section('title', trans('page_titles.list', ['model' => trans('models.grade')]))
 
 @section('content')
 

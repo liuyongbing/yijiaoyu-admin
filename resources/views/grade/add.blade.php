@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', '新闻管理 - 编辑新闻')
+@section('title', trans('page_titles.create', ['model' => trans('models.grade')]))
 
 @section('content')
 
