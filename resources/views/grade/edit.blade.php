@@ -36,9 +36,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Category Modal -->
-    @include('document.form.modal')
     
 @endsection
 
