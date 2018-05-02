@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', trans('page_titles.edit', ['model' => trans('models.grade')]))
+@section('title', trans('page_titles.edit', ['model' => trans('models.' . $route)]))
 
 @section('content')
 
@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="page-header">
-                    <h1>{{ trans('models.grade') }}</h1>
+                    <h1>{{ trans('models.' . $route) }}</h1>
                 </div>
             </div>
         </div>
@@ -28,7 +28,11 @@
                         
                             <input name="_method" type="hidden" value="PUT">
                             
-                            @include($route . '.inputs', ['item' => $item, 'grades' => $grades])
+                            @include($route . '.inputs', [
+                                'item' => $item,
+                                'route' => $route,
+                                'grades' => $grades
+                            ])
                         </form>
                     </div>
                 </div>

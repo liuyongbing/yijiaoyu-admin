@@ -1,28 +1,10 @@
 @extends('layouts.main')
 
-@section('title', trans('page_titles.list', ['model' => trans('models.grade')]))
+@section('title', trans('page_titles.list', ['model' => trans('models.' . $route)]))
 
 @section('content')
 
     <div class="col-md-12">
-        <!--div class="row">
-            <div class="col-lg-12">
-                <div class="page-header">
-                    <h1>班级</h1>
-                </div>
-            </div>
-        </div-->
-        <!--div class="row">
-            <div class="col-md-12">
-                <form class="form-inline" action="{{ route('grades.index') }}">
-                    <i class="glyphicon glyphicon-search"></i>
-                    <button class="btn btn-sm btn-primary">
-                        <b>Search</b>
-                    </button>
-                </form>
-            </div>
-        </div>
-        <br /-->
         <div class="row">
             <div class="col-md-12">
                 <a href="{{ route($route . '.create') }}" class="btn btn-success btn-sm">
@@ -79,5 +61,3 @@
         ])
     </div>
 @endsection
-
-

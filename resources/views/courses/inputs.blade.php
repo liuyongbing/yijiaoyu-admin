@@ -21,7 +21,7 @@
         <!--排序-->
         @include('form.sort', ['item' => $item])
     </div>
-                                
+    
     <div class="form-group">
         <!--图片-->
         @include('form.file', ['item' => $item])
@@ -34,7 +34,7 @@
     
     <div class="form-group">
         <!--submit buttons-->
-        @include('form.submit', ['route' => 'grades.index'])
+        @include('form.submit', ['route' => $route . '.index'])
     </div>
     
 </fieldset>

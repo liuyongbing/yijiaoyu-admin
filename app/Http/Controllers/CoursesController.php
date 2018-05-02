@@ -54,9 +54,8 @@ class CoursesController extends Controller
      * 修改 view
      * 
      * @param int $id
-     * @param GradesRepository $repository
      */
-    public function edit($id, GradesRepository $repository)
+    public function edit($id)
     {
         $item = $this->repository->detail($id);
         $grades = $repository->all();
