@@ -13,6 +13,11 @@
     </div>
     
     <div class="form-group">
+        <!--标题-->
+        @include('form.summary', ['item' => $item])
+    </div>
+    
+    <div class="form-group">
         <!--排序-->
         @include('form.sort', ['item' => $item])
     </div>

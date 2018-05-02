@@ -19,5 +19,5 @@ return [
     'image' => '图片',
     'image_view' => '图片预览',
     'grade' => '班级',
-        //'' => '',
+    'summary' => '描述',
 ];
