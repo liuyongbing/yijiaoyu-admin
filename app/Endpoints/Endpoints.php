@@ -24,7 +24,7 @@ class Endpoints
      * @param array $params
      * @return array
      */
-    public static function list($params)
+    public function list($params)
     {
         $response = ApiClient::get(static::getApi(), $params);
         
@@ -81,6 +81,20 @@ class Endpoints
     public static function upload($data)
     {
         $response = ApiClient::upload(static::getApi(), $data, static::headers());
+        
+        return static::response($response);
+    }
+    
+    /**
+     * 列表 - 所表
+     *
+     * @param array $params
+     * @return array
+     */
+    public function all($params)
+    {
+        //TODO: 实现
+        $response = ApiClient::get(static::getApi(), $params);
         
         return static::response($response);
     }

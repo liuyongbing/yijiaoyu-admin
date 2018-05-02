@@ -20,7 +20,7 @@ class Controller extends BaseController
     
     protected function upload(Request $request, AttachmentRepository $repository)
     {
-        $filename = '';
+        $filename = $request->input('Record')['image'];
         
         $file = $_FILES['upload_file'];
         if (!empty($file['name'])) {

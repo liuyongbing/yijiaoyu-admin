@@ -18,6 +18,6 @@ return [
     'operation' => '操作',
     'image' => '图片',
     'image_view' => '图片预览',
-        //'' => '',
+    'grade' => '班级',
         //'' => '',
 ];

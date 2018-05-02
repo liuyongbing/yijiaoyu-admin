@@ -7,18 +7,22 @@ use App\Repositories\Repository;
 
 class GradesRepository extends Repository
 {
+    public function init()
+    {
+        $this->endPoint = new GradesEndpoint();
+    }
     /**
      * 列表
      * 
      * @param array $params
      * @return array
      */
-    public function list($params = [], $page = 1, $size = 10)
+    /* public function list($params = [], $page = 1, $size = 10)
     {
         $params['page'] = $page;
         $params['size'] = $size;
         return GradesEndpoint::list($params);
-    }
+    } */
     
     /**
      * 详情

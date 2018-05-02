@@ -4,29 +4,45 @@ namespace App\Http\Controllers;
 
 use App\Constants\Dictionary;
 use App\Repositories\AttachmentRepository;
+use App\Repositories\CoursesRepository;
 use App\Repositories\GradesRepository;
 use Illuminate\Http\Request;
 
-class GradesController extends Controller
+class CoursesController extends Controller
 {
+    public $repository = null;
+    public $route = null;
+    
+    public function __construct()
+    {
+        $this->init();
+    }
+    
+    public function init()
+    {
+        $this->repository = new CoursesRepository();
+        $this->route = 'courses';
+    }
+    
     /**
      * 列表
      *
      * @param Request $request
      * @param GradesRepository $repository
      */
-    public function index(Request $request, GradesRepository $repository)
+    public function index(Request $request)
     {
         $page = $request->input('page', 1);
         $size = Dictionary::PAGE_SIZE;
         
-        $results = $repository->list([], $page, $size);
+        $results = $this->repository->list([], $page, $size);
         
-        return view('grade.index', [
-            'items'         => isset($results['list']) ? $results['list'] : [],
-            'filters'       => [],
+        return view($this->route . '.list', [
+            'route' => $this->route,
+            'items' => isset($results['list']) ? $results['list'] : [],
+            'filters' => [],
             'pagination' => [
-                'route' => 'grades.index',
+                'route' => $this->route . '.index',
                 'page' => $page,
                 'size' => $size,
                 'total' => isset($results['total']) ? $results['total'] : 0
@@ -42,10 +58,13 @@ class GradesController extends Controller
      */
     public function edit($id, GradesRepository $repository)
     {
-        $item = $repository->detail($id);
+        $item = $this->repository->detail($id);
+        $grades = $repository->all();
         
-        return view('grade.edit', [
-            'item' => $item
+        return view($this->route . '.edit', [
+            'route' => $this->route,
+            'item' => $item,
+            'grades' => $grades['list']
         ]);
     }
     
@@ -56,15 +75,14 @@ class GradesController extends Controller
      * @param GradesRepository $repository
      * @param int $id
      */
-    public function update(Request $request, GradesRepository $repository,
-            AttachmentRepository $attachmentRepository, $id)
+    public function update(Request $request, AttachmentRepository $attachmentRepository, $id)
     {
         $data = $request->input('Record');
         $data['image'] = $this->upload($request, $attachmentRepository);
         
-        $response = $repository->update($id, $data);
+        $response = $this->repository->update($id, $data);
 
-        return redirect()->route('grades.index');
+        return redirect()->route($this->route . '.index');
     }
     
     /**
@@ -75,7 +93,7 @@ class GradesController extends Controller
      */
     public function create(Request $request, GradesRepository $repository)
     {
-        return view('grade.add', [
+        return view($this->route . '.add', [
             'item' => [
                 'status' => 1
             ]
@@ -86,27 +104,24 @@ class GradesController extends Controller
      * 新增 post
      * 
      * @param Request $request
-     * @param GradesRepository $repository
      */
-    public function store(Request $request, GradesRepository $repository,
-            AttachmentRepository $attachmentRepository)
+    public function store(Request $request, AttachmentRepository $attachmentRepository)
     {
         $data = $request->input('Record');
         $data['image'] = $this->upload($request, $attachmentRepository);
         
-        $response = $repository->store($data);
+        $response = $this->repository->store($data);
         
-        return redirect()->route('grades.index');
+        return redirect()->route($this->route . '.index');
     }
     
     /**
      * 查看
      * 
-     * @param unknown $id
-     * @param GradesRepository $repository
+     * @param int $id
      */
-    public function show($id, GradesRepository $repository)
+    public function show($id)
     {
-        return $repository->detail($id);
+        return $this->repository->detail($id);
     }
 }
