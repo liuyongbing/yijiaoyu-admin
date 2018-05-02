@@ -24,9 +24,9 @@
                         </div>
                     </div>
                     <div class="bootstrap-admin-no-table-panel-content bootstrap-admin-panel-content collapse in">
-                        <form class="form-horizontal" action="{{ route('grades.store') }}" method="post" enctype="multipart/form-data">
+                        <form class="form-horizontal" action="{{ route($route . '.store') }}" method="post" enctype="multipart/form-data">
                             
-                            @include('grade.inputs', ['item' => $item])
+                            @include($route . '.inputs', ['item' => $item])
                                 
                             </fieldset>
                         </form>
