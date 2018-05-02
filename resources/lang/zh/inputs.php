@@ -20,4 +20,6 @@ return [
     'image_view' => '图片预览',
     'grade' => '班级',
     'summary' => '描述',
+    'course' => '课程',
+    'display_type' => '显示方式',
 ];
