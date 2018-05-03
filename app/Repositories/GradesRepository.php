@@ -11,18 +11,21 @@ class GradesRepository extends Repository
     {
         $this->endPoint = new GradesEndpoint();
     }
+    
     /**
      * 列表
      * 
      * @param array $params
      * @return array
      */
-    /* public function list($params = [], $page = 1, $size = 10)
+    public function list($params = [], $page = 1, $size = 10, $order = 'sort')
     {
         $params['page'] = $page;
         $params['size'] = $size;
-        return GradesEndpoint::list($params);
-    } */
+        $params['order'] = $order;
+        
+        return $this->endPoint->list($params);
+    }
     
     /**
      * 详情
@@ -32,29 +35,6 @@ class GradesRepository extends Repository
      */
     public function detail($id)
     {
-        return GradesEndpoint::detail($id);
-    }
-    
-    /**
-     * 修改
-     * 
-     * @param int $id
-     * @param array $data
-     * @return array
-     */
-    public function update($id, $data = [])
-    {
-        return GradesEndpoint::update($id, $data);
-    }
-    
-    /**
-     * 增加
-     * 
-     * @param array $data
-     * @return array
-     */
-    public function store($data = [])
-    {
-        return GradesEndpoint::store($data);
+        return $this->endPoint->detail($id);
     }
 }

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Constants\Dictionary;
 use App\Repositories\AttachmentRepository;
 use App\Repositories\CoursesRepository;
 use App\Repositories\GradesRepository;
@@ -10,9 +9,6 @@ use Illuminate\Http\Request;
 
 class CoursesController extends Controller
 {
-    public $repository = null;
-    public $route = null;
-    
     public function __construct()
     {
         $this->init();
@@ -21,33 +17,8 @@ class CoursesController extends Controller
     public function init()
     {
         $this->repository = new CoursesRepository();
+        
         $this->route = 'courses';
-    }
-    
-    /**
-     * 列表
-     *
-     * @param Request $request
-     * @param GradesRepository $repository
-     */
-    public function index(Request $request)
-    {
-        $page = $request->input('page', 1);
-        $size = Dictionary::PAGE_SIZE;
-        
-        $results = $this->repository->list([], $page, $size);
-        
-        return view($this->route . '.list', [
-            'route' => $this->route,
-            'items' => isset($results['list']) ? $results['list'] : [],
-            'filters' => [],
-            'pagination' => [
-                'route' => $this->route . '.index',
-                'page' => $page,
-                'size' => $size,
-                'total' => isset($results['total']) ? $results['total'] : 0
-            ]
-        ]);
     }
     
     /**
@@ -58,6 +29,8 @@ class CoursesController extends Controller
     public function edit($id)
     {
         $item = $this->repository->detail($id);
+        
+        $repository = new GradesRepository();
         $grades = $repository->all();
         
         return view($this->route . '.edit', [

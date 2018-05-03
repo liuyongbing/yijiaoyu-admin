@@ -8,6 +8,18 @@ class Endpoints
 {
     const API_VERSION = 1;
     
+    public $api;
+    
+    public function __construct()
+    {
+        $this->init();
+    }
+    
+    public function init()
+    {
+        $this->api = '';
+    }
+    
     /**
      * API地址
      * 
@@ -24,9 +36,9 @@ class Endpoints
      * @param array $params
      * @return array
      */
-    public static function list($params)
+    public function list($params)
     {
-        $response = ApiClient::get(static::getApi(), $params);
+        $response = ApiClient::get($this->api, $params);
         
         return static::response($response);
     }
@@ -37,9 +49,9 @@ class Endpoints
      * @param int $id
      * @return array
      */
-    public static function detail($id)
+    public function detail($id)
     {
-        $response = ApiClient::get(static::getApi() . '/' . $id);
+        $response = ApiClient::get($this->api . '/' . $id);
         
         return static::response($response);
     }
@@ -50,9 +62,9 @@ class Endpoints
      * @param array $data
      * @return array
      */
-    public static function store($data)
+    public function store($data)
     {
-        $response = ApiClient::post(static::getApi(), $data, static::headers());
+        $response = ApiClient::post($this->api, $data, static::headers());
         
         return static::response($response);
     }
@@ -64,9 +76,9 @@ class Endpoints
      * @param array $data
      * @return array
      */
-    public static function update($id, $data)
+    public function update($id, $data)
     {
-        $url = static::getApi() . '/' . $id;
+        $url = $this->api . '/' . $id;
         $response = ApiClient::put($url, $data, static::headers());
         
         return static::response($response);
@@ -78,9 +90,11 @@ class Endpoints
      * @param array $data
      * @return array
      */
-    public static function upload($data)
+    public function upload($data)
     {
-        $response = ApiClient::upload(static::getApi(), $data, static::headers());
+//var_dump($this->api);
+//print_r($data);exit();
+        $response = ApiClient::upload($this->api, $data, static::headers());
         
         return static::response($response);
     }
@@ -94,7 +108,7 @@ class Endpoints
     public function all($params)
     {
         //TODO: 实现
-        $response = ApiClient::get(static::getApi(), $params);
+        $response = ApiClient::get($this->api, $params);
         
         return static::response($response);
     }

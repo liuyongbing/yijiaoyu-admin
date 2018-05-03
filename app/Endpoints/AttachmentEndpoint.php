@@ -6,7 +6,10 @@ use App\Endpoints\Endpoints;
 
 class AttachmentEndpoint extends Endpoints
 {
-    const API = 'attachment/upload';
+    public function init()
+    {
+        $this->api = 'attachment/upload/courseware';
+    }
     
     public static $filetype = 'common';
     

@@ -7,13 +7,18 @@ use App\Repositories\Repository;
 
 class AttachmentRepository extends Repository
 {
+    public function init()
+    {
+        $this->endPoint = new AttachmentEndpoint();
+    }
+    
     public function upload($params = [])
     {
-        return AttachmentEndpoint::upload($params);
+        return $this->endPoint->upload($params);
     }
     
     public function setFiletype($filetype = 'common')
     {
-        AttachmentEndpoint::setFiletype($filetype);
+        $this->endPoint->setFiletype($filetype);
     }
 }

@@ -24,11 +24,17 @@ class Repository
      * @param array $params
      * @return array
      */
-    public function list($params = [], $page = 1, $size = 10)
+    public function list($params = [], $page = 1, $size = 10, $order = '')
     {
         $params['page'] = $page;
         $params['size'] = $size;
-        return $this->endPoint::list($params);
+        
+        if (!empty($order)) 
+        {
+            $params['order'] = $order;
+        }
+        
+        return $this->endPoint->list($params);
     }
     
     /**
@@ -39,7 +45,7 @@ class Repository
      */
     public function detail($id)
     {
-        return $this->endPoint::detail($id);
+        return $this->endPoint->detail($id);
     }
     
     /**
@@ -51,7 +57,7 @@ class Repository
      */
     public function update($id, $data = [])
     {
-        return $this->endPoint::update($id, $data);
+        return $this->endPoint->update($id, $data);
     }
     
     /**
@@ -62,7 +68,7 @@ class Repository
      */
     public function store($data = [])
     {
-        return $this->endPoint::store($data);
+        return $this->endPoint->store($data);
     }
     
     /**

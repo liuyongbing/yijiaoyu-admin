@@ -6,5 +6,8 @@ use App\Endpoints\Endpoints;
 
 class GradesEndpoint extends Endpoints
 {
-    const API = 'grades';
+    public function init()
+    {
+        $this->api = 'grades';
+    }
 }
