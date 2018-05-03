@@ -24,7 +24,7 @@ class Endpoints
      * @param array $params
      * @return array
      */
-    public function list($params)
+    public static function list($params)
     {
         $response = ApiClient::get(static::getApi(), $params);
         

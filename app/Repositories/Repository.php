@@ -28,7 +28,7 @@ class Repository
     {
         $params['page'] = $page;
         $params['size'] = $size;
-        return $this->endPoint->list($params);
+        return $this->endPoint::list($params);
     }
     
     /**
