@@ -10,7 +10,7 @@
                 <div class="collapse navbar-collapse main-navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li>
-                            <a href="{{ route('users.index') }}">分馆管理</a>
+                            <a href="{{ route('branches.index') }}">分馆管理</a>
                         </li>
                         <li>
                             <a href="{{ route('trainers.index') }}">教练管理</a>

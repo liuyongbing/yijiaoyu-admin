@@ -25,5 +25,10 @@ return [
     'gender' => '性别',
     'mobile' => '手机',
     'email' => '邮箱',
-    'address' => '地址',
+    'address' => '校区地址',
+    'birthday' => '生日',
+    'expiry_date' => '预计加盟时间',
+    'city' => '城市',
+    'investment_amount' => '投资金额',
+    'id_number' => '身份证号'
 ];

@@ -107,7 +107,7 @@ class Endpoints
      */
     public static function handleError($response)
     {
-        return $response;
+        throw new \Exception($response['result']['message']);
     }
     
     /**
