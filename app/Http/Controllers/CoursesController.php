@@ -2,18 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\AttachmentRepository;
 use App\Repositories\CoursesRepository;
 use App\Repositories\GradesRepository;
 use Illuminate\Http\Request;
 
 class CoursesController extends Controller
 {
-    public function __construct()
-    {
-        $this->init();
-    }
-    
     public function init()
     {
         $this->repository = new CoursesRepository();
@@ -44,13 +38,13 @@ class CoursesController extends Controller
      * 修改 put
      * 
      * @param Request $request
-     * @param GradesRepository $repository
      * @param int $id
      */
-    public function update(Request $request, AttachmentRepository $attachmentRepository, $id)
+    public function update(Request $request, $id)
     {
         $data = $request->input('Record');
-        $data['image'] = $this->upload($request, $attachmentRepository);
+        
+        $data['image'] = $this->upload($request);
         
         $response = $this->repository->update($id, $data);
 
@@ -61,11 +55,12 @@ class CoursesController extends Controller
      * 新增
      * 
      * @param Request $request
-     * @param GradesRepository $repository
      */
-    public function create(Request $request, GradesRepository $repository)
+    public function create(Request $request)
     {
+        $repository = new GradesRepository();
         $grades = $repository->all();
+        
         return view($this->route . '.add', [
             'route' => $this->route,
             'item' => [
@@ -80,23 +75,13 @@ class CoursesController extends Controller
      * 
      * @param Request $request
      */
-    public function store(Request $request, AttachmentRepository $attachmentRepository)
+    public function store(Request $request)
     {
         $data = $request->input('Record');
-        $data['image'] = $this->upload($request, $attachmentRepository);
+        $data['image'] = $this->upload($request);
         
         $response = $this->repository->store($data);
         
         return redirect()->route($this->route . '.index');
-    }
-    
-    /**
-     * 查看
-     * 
-     * @param int $id
-     */
-    public function show($id)
-    {
-        return $this->repository->detail($id);
     }
 }

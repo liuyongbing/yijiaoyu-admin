@@ -6,5 +6,8 @@ use App\Endpoints\Endpoints;
 
 class TrainersEndpoint extends Endpoints
 {
-    const API = 'trainers';
+    public function init()
+    {
+        $this->api = 'trainers';
+    }
 }

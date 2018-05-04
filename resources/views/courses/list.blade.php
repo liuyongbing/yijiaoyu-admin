@@ -34,14 +34,14 @@
                             <tbody>
                                 @foreach($items as $item)
                                     <tr>
-                                        <td><a title="{{$item['title']}}" href="{{ route($route . '.edit', $item['id']) }}" target="_blank">{{ $item['title'] }}</a></td>
+                                        <td>{{ $item['title'] }}</td>
                                         <td>{{ $item['grade_name'] }}</td>
                                         <td>{{ $item['sort'] }}</td>
                                         <td>{{ $item['status_desc'] }}</td>
                                         <td>
                                             <a href="{{ route($route . '.edit', $item['id']) }}" target="_blank" class="btn btn-sm btn-primary">
                                                 <i class="glyphicon glyphicon-edit glyphicon-white"></i>
-                                                    {{ trans('actions.edit') }}
+                                                {{ trans('actions.edit') }}
                                             </a>
                                         </td>
                                     </tr>

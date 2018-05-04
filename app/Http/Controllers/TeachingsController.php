@@ -10,14 +10,6 @@ use Illuminate\Http\Request;
 
 class TeachingsController extends Controller
 {
-    public $repository = null;
-    public $route = null;
-    
-    public function __construct()
-    {
-        $this->init();
-    }
-    
     public function init()
     {
         $this->repository = new TeachingsRepository();
@@ -48,13 +40,12 @@ class TeachingsController extends Controller
      * 修改 put
      * 
      * @param Request $request
-     * @param GradesRepository $repository
      * @param int $id
      */
-    public function update(Request $request, AttachmentRepository $attachmentRepository, $id)
+    public function update(Request $request, $id)
     {
         $data = $request->input('Record');
-        $data['image'] = $this->upload($request, $attachmentRepository);
+        $data['image'] = $this->upload($request);
         
         $response = $this->repository->update($id, $data);
 
@@ -65,10 +56,10 @@ class TeachingsController extends Controller
      * 新增
      * 
      * @param Request $request
-     * @param CoursesRepository $repository
      */
-    public function create(Request $request, CoursesRepository $repository)
+    public function create(Request $request)
     {
+        $repository = new CoursesRepository();
         $grades = $repository->all();
         return view($this->route . '.add', [
             'route' => $this->route,
@@ -84,10 +75,10 @@ class TeachingsController extends Controller
      * 
      * @param Request $request
      */
-    public function store(Request $request, AttachmentRepository $attachmentRepository)
+    public function store(Request $request)
     {
         $data = $request->input('Record');
-        $data['image'] = $this->upload($request, $attachmentRepository);
+        $data['image'] = $this->upload($request);
         
         $response = $this->repository->store($data);
         

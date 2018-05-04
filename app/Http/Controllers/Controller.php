@@ -80,6 +80,7 @@ class Controller extends BaseController
         $item = $this->repository->detail($id);
         
         return view($this->route . '.edit', [
+            'route' => $this->route,
             'item' => $item
         ]);
     }
@@ -92,6 +93,7 @@ class Controller extends BaseController
     public function create(Request $request)
     {
         return view($this->route . '.add', [
+            'route' => $this->route,
             'item' => [
                 'status' => 1
             ]
@@ -116,7 +118,6 @@ class Controller extends BaseController
      * 附件上传
      * 
      * @param Request $request
-     * @param AttachmentRepository $repository
      * @return mixed
      */
     public function upload(Request $request)
@@ -139,6 +140,16 @@ class Controller extends BaseController
         }
         
         return $filename;
+    }
+    
+    /**
+     * 查看
+     *
+     * @param int $id
+     */
+    public function show($id)
+    {
+        return $this->repository->detail($id);
     }
     
     public function response($response)

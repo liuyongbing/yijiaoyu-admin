@@ -9,7 +9,7 @@ return [
     |
     */
     
-    'grade' => '班级',
+    'grades' => '班级',
     'courses' => '课程',
     'teachings' => '课时',
     'trainers' => '教练',

@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', trans('page_titles.create', ['model' => trans('models.grade')]))
+@section('title', trans('page_titles.create', ['model' => trans('models.' . $route)]))
 
 @section('content')
 
@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="page-header">
-                    <h1>{{ trans('models.grade') }}</h1>
+                    <h1>{{ trans('models.' . $route) }}</h1>
                 </div>
             </div>
         </div>

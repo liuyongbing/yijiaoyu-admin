@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', trans('page_titles.edit', ['model' => trans('models.grade')]))
+@section('title', trans('page_titles.edit', ['model' => trans('models.' . $route)]))
 
 @section('content')
 
@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="page-header">
-                    <h1>{{ trans('models.grade') }}</h1>
+                    <h1>{{ trans('models.' . $route) }}</h1>
                 </div>
             </div>
         </div>
@@ -24,11 +24,11 @@
                         </div>
                     </div>
                     <div class="bootstrap-admin-no-table-panel-content bootstrap-admin-panel-content collapse in">
-                        <form class="form-horizontal" action="{{ route('grades.update', ['id' => $item['id']]) }}" method="post" enctype="multipart/form-data">
+                        <form class="form-horizontal" action="{{ route($route . '.update', ['id' => $item['id']]) }}" method="post" enctype="multipart/form-data">
                         
                             <input name="_method" type="hidden" value="PUT">
                             
-                            @include('grade.inputs', ['item' => $item])
+                            @include($route . '.inputs', ['item' => $item])
                         </form>
                     </div>
                 </div>

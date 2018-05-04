@@ -1,31 +1,13 @@
 @extends('layouts.main')
 
-@section('title', trans('page_titles.list', ['model' => trans('models.grade')]))
+@section('title', trans('page_titles.list', ['model' => trans('models.' . $route)]))
 
 @section('content')
 
     <div class="col-md-12">
-        <!--div class="row">
-            <div class="col-lg-12">
-                <div class="page-header">
-                    <h1>班级</h1>
-                </div>
-            </div>
-        </div-->
-        <!--div class="row">
-            <div class="col-md-12">
-                <form class="form-inline" action="{{ route('grades.index') }}">
-                    <i class="glyphicon glyphicon-search"></i>
-                    <button class="btn btn-sm btn-primary">
-                        <b>Search</b>
-                    </button>
-                </form>
-            </div>
-        </div>
-        <br /-->
         <div class="row">
             <div class="col-md-12">
-                <a href="{{ route('grades.create') }}" class="btn btn-success btn-sm">
+                <a href="{{ route($route . '.create') }}" class="btn btn-success btn-sm">
                     <i class="glyphicon glyphicon-plus glyphicon-white"></i> {{ trans('actions.add') }}
                 </a>
             </div>
@@ -51,13 +33,13 @@
                             <tbody>
                                 @foreach($items as $item)
                                     <tr>
-                                        <td><a title="{{$item['title']}}" href="{{ route('grades.edit', $item['id']) }}" target="_blank">{{ $item['title'] }}</a></td>
+                                        <td>{{ $item['title'] }}</td>
                                         <td>{{ $item['sort'] }}</td>
                                         <td>{{ $item['status_desc'] }}</td>
                                         <td>
-                                            <a href="{{ route('grades.edit', $item['id']) }}" target="_blank" class="btn btn-sm btn-primary">
+                                            <a href="{{ route($route . '.edit', $item['id']) }}" target="_blank" class="btn btn-sm btn-primary">
                                                 <i class="glyphicon glyphicon-edit glyphicon-white"></i>
-                                                    {{ trans('actions.edit') }}
+                                                {{ trans('actions.edit') }}
                                             </a>
                                         </td>
                                     </tr>
@@ -77,5 +59,3 @@
         ])
     </div>
 @endsection
-
-

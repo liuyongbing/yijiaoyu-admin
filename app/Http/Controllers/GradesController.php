@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\AttachmentRepository;
 use App\Repositories\GradesRepository;
 use Illuminate\Http\Request;
 
@@ -47,16 +46,5 @@ class GradesController extends Controller
         $response = $this->repository->store($data);
         
         return redirect()->route($this->route . '.index');
-    }
-    
-    /**
-     * 查看
-     * 
-     * @param unknown $id
-     * @param GradesRepository $repository
-     */
-    public function show($id, GradesRepository $repository)
-    {
-        return $repository->detail($id);
     }
 }
