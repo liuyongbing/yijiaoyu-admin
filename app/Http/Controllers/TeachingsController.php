@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\AttachmentRepository;
 use App\Repositories\CoursesRepository;
-use App\Repositories\GradesRepository;
 use App\Repositories\TeachingsRepository;
 use Illuminate\Http\Request;
 
@@ -83,15 +81,5 @@ class TeachingsController extends Controller
         $response = $this->repository->store($data);
         
         return redirect()->route($this->route . '.index');
-    }
-    
-    /**
-     * 查看
-     * 
-     * @param int $id
-     */
-    public function show($id)
-    {
-        return $this->repository->detail($id);
     }
 }

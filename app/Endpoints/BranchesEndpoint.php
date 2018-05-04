@@ -6,5 +6,8 @@ use App\Endpoints\Endpoints;
 
 class BranchesEndpoint extends Endpoints
 {
-    const API = 'branches';
+    public function init()
+    {
+        $this->api = 'branches';
+    }
 }
