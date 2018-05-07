@@ -8,18 +8,13 @@
     </div>
     
     <div class="form-group">
-        <!--标题-->
-        @include('form.title', ['item' => $item])
+        <!--所属课时-->
+        @include('form.class', ['item' => $item])
     </div>
     
     <div class="form-group">
-        <!--标题-->
-        @include('form.summary', ['item' => $item])
-    </div>
-    
-    <div class="form-group">
-        <!--排序-->
-        @include('form.sort', ['item' => $item])
+        <!--内容-->
+        @include('form.content', ['item' => $item])
     </div>
                                 
     <div class="form-group">
@@ -28,13 +23,13 @@
     </div>
     
     <div class="form-group">
-        <!--状态-->
-        @include('form.status', ['item' => $item])
+        <!--排序-->
+        @include('form.sort', ['item' => $item])
     </div>
     
     <div class="form-group">
         <!--submit buttons-->
-        @include('form.submit', ['route' => 'grades.index'])
+        @include('form.submit', ['route' => $route . '.index'])
     </div>
     
 </fieldset>

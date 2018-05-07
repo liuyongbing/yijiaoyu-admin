@@ -10,19 +10,19 @@
                 <div class="collapse navbar-collapse main-navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li>
-                            <a href="{{ route('branches.index') }}">分馆管理</a>
+                            <a href="{{ route('branches.index') }}">{{ trans('models.branches') }}管理</a>
                         </li>
                         <li>
-                            <a href="{{ route('trainers.index') }}">教练管理</a>
+                            <a href="{{ route('trainers.index') }}">{{ trans('models.trainers') }}管理</a>
                         </li>
                         <li>
-                            <a href="{{ route('grades.index') }}">班级管理</a>
+                            <a href="{{ route('grades.index') }}">{{ trans('models.grades') }}管理</a>
                         </li>
                         <li>
-                            <a href="{{ route('courses.index') }}">课程管理</a>
+                            <a href="{{ route('courses.index') }}">{{ trans('models.courses') }}管理</a>
                         </li>
                         <li>
-                            <a href="{{ route('teachings.index') }}">课时管理</a>
+                            <a href="{{ route('teachings.index') }}">{{ trans('models.teachings') }}管理</a>
                         </li>
                     </ul>
                 </div><!-- /.navbar-collapse -->

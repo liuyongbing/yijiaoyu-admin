@@ -26,6 +26,7 @@
                                 <tr>
                                     <th>{{ trans('inputs.name') }}</th>
                                     <th>{{ trans('inputs.grade') }}</th>
+                                    <th>{{ trans('inputs.class_total') }}</th>
                                     <th>{{ trans('inputs.sort') }}</th>
                                     <th>{{ trans('inputs.status') }}</th>
                                     <th>{{ trans('inputs.operation') }}</th>
@@ -36,6 +37,7 @@
                                     <tr>
                                         <td>{{ $item['title'] }}</td>
                                         <td>{{ $item['grade_name'] }}</td>
+                                        <td>{{ $item['class_total'] }}</td>
                                         <td>{{ $item['sort'] }}</td>
                                         <td>{{ $item['status_desc'] }}</td>
                                         <td>

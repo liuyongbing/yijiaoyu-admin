@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Constants\Dictionary;
 use App\Repositories\AttachmentRepository;
+use App\Repositories\Repository;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
-use App\Repositories\Repository;
-use App\Constants\Dictionary;
 
 class Controller extends BaseController
 {
@@ -75,7 +75,7 @@ class Controller extends BaseController
      *
      * @param int $id
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
         $item = $this->repository->detail($id);
         

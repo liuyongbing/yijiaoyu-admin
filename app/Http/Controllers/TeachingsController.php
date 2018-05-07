@@ -20,17 +20,18 @@ class TeachingsController extends Controller
      * 
      * @param int $id
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
         $item = $this->repository->detail($id);
         
         $repository = new CoursesRepository();
-        $grades = $repository->all();
+        //$courseId = $request->input('course_id');
+        $course = $repository->detail($item['course_id']);
         
         return view($this->route . '.edit', [
             'route' => $this->route,
             'item' => $item,
-            'grades' => $grades['list']
+            'course' => $course
         ]);
     }
     
@@ -44,7 +45,7 @@ class TeachingsController extends Controller
     {
         $data = $request->input('Record');
         $data['image'] = $this->upload($request);
-        
+//echo '<pre>';print_r($data);exit();
         $response = $this->repository->update($id, $data);
 
         return redirect()->route($this->route . '.index');
@@ -58,13 +59,16 @@ class TeachingsController extends Controller
     public function create(Request $request)
     {
         $repository = new CoursesRepository();
-        $grades = $repository->all();
+        $courseId = $request->input('course_id');
+        $course = $repository->detail($courseId);
+        
         return view($this->route . '.add', [
             'route' => $this->route,
             'item' => [
+                'course_id' => $course['id'],
                 'status' => 1
             ],
-            'grades' => $grades['list']
+            'course' => $course
         ]);
     }
     

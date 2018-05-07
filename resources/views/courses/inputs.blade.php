@@ -13,8 +13,13 @@
     </div>
     
     <div class="form-group">
-        <!--标题-->
+        <!--描述-->
         @include('form.summary', ['item' => $item])
+    </div>
+    
+    <div class="form-group">
+        <!--总课时-->
+        @include('form.class_total', ['item' => $item])
     </div>
     
     <div class="form-group">

@@ -11,7 +11,7 @@ return [
     
     'grades' => '班级',
     'courses' => '课程',
-    'teachings' => '课时',
+    'teachings' => '课件',
     'trainers' => '教练',
     'branches' => '分馆',
 ];

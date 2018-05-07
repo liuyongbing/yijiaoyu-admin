@@ -30,5 +30,8 @@ return [
     'expiry_date' => '预计加盟时间',
     'city' => '城市',
     'investment_amount' => '投资金额',
-    'id_number' => '身份证号'
+    'id_number' => '身份证号',
+    'class_total' => '总课时',
+    'class_number' => '课时',
+    'content' => '内容',
 ];
