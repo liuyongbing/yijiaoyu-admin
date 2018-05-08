@@ -20,7 +20,7 @@ class CoursesController extends Controller
      * 
      * @param int $id
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
         $item = $this->repository->detail($id);
         
