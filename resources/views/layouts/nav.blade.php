@@ -24,6 +24,9 @@
                         <li>
                             <a href="{{ route('teachings.index') }}">{{ trans('models.teachings') }}管理</a>
                         </li>
+                        <li>
+                            <a href="{{ route('news.index') }}">{{ trans('models.news') }}管理</a>
+                        </li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div>

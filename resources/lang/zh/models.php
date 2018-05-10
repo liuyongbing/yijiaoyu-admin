@@ -14,4 +14,5 @@ return [
     'teachings' => '课件',
     'trainers' => '教练',
     'branches' => '分馆',
+    'news' => '资讯',
 ];

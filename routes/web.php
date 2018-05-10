@@ -32,8 +32,10 @@ Route::resource('branches', 'BranchesController');
 Route::resource('grades', 'GradesController');
 //课程
 Route::resource('courses', 'CoursesController');
-//课时
+//课件
 Route::resource('teachings', 'TeachingsController');
+//资讯
+Route::resource('news', 'NewsController');
 //附件上传
 Route::post('/attachment/upload', 'AttachmentController@upload')->name('attachment.upload');
 Route::get('/attachment/demo', 'AttachmentController@demo')->name('attachment.demo');

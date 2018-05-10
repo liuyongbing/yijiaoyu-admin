@@ -21,16 +21,6 @@ class Endpoints
     }
     
     /**
-     * API地址
-     * 
-     * @return string
-     */
-    public static function getApi()
-    {
-        return static::API;
-    }
-    
-    /**
      * 列表
      * 
      * @param array $params
@@ -40,7 +30,7 @@ class Endpoints
     {
         $response = ApiClient::get($this->api, $params);
         
-        return static::response($response);
+        return $this->response($response);
     }
     
     /**
@@ -53,7 +43,7 @@ class Endpoints
     {
         $response = ApiClient::get($this->api . '/' . $id);
         
-        return static::response($response);
+        return $this->response($response);
     }
     
     /**
@@ -66,7 +56,7 @@ class Endpoints
     {
         $response = ApiClient::post($this->api, $data, static::headers());
         
-        return static::response($response);
+        return $this->response($response);
     }
     
     /**
@@ -81,7 +71,7 @@ class Endpoints
         $url = $this->api . '/' . $id;
         $response = ApiClient::put($url, $data, static::headers());
         
-        return static::response($response);
+        return $this->response($response);
     }
     
     /**
@@ -96,7 +86,7 @@ class Endpoints
 //print_r($data);exit();
         $response = ApiClient::upload($this->api, $data, static::headers());
         
-        return static::response($response);
+        return $this->response($response);
     }
     
     /**
@@ -110,7 +100,7 @@ class Endpoints
         //TODO: 实现
         $response = ApiClient::get($this->api, $params);
         
-        return static::response($response);
+        return $this->response($response);
     }
     
     /**
@@ -140,7 +130,7 @@ class Endpoints
      * @param array $response
      * @return array
      */
-    protected static function response($response)
+    protected function response($response)
     {
         $result = [];
         if ($response['status'] === 'success') {

@@ -44,8 +44,8 @@ class Controller extends BaseController
         
         return view($this->route . '.list', [
             'route' => $this->route,
-            'items'         => isset($results['list']) ? $results['list'] : [],
-            'filters'       => [],
+            'items' => isset($results['list']) ? $results['list'] : [],
+            'filters' => [],
             'pagination' => [
                 'route' => $this->route . '.index',
                 'page' => $page,
@@ -108,7 +108,7 @@ class Controller extends BaseController
     public function store(Request $request)
     {
         $data = $request->input('Record');
-        
+//return $data;
         $response = $this->repository->store($data);
         
         return redirect()->route($this->route . '.index');
