@@ -18,9 +18,9 @@ Route::get('/', function () {
 Route::get('/dashboard', 'DashboardController@dashboard')->name('dashboard');
 
 Route::group(['namespace' => 'Auth'], function () {
-    Route::get('/login', 'LoginController@showLoginForm')->name('login');
-    Route::post('/login', 'LoginController@login')->name('loginPost');
+    Route::get('/login', 'LoginController@login')->name('login');
     Route::get('/logout', 'LoginController@logout')->name('logout');
+    Route::post('/auth', 'LoginController@auth')->name('auth');
 });
 //用户
 Route::resource('users', 'UsersController');
@@ -39,3 +39,5 @@ Route::resource('news', 'NewsController');
 //附件上传
 Route::post('/attachment/upload', 'AttachmentController@upload')->name('attachment.upload');
 Route::get('/attachment/demo', 'AttachmentController@demo')->name('attachment.demo');
+//短信
+Route::post('/sms/send', 'SmsController@send')->name('sms.send');
