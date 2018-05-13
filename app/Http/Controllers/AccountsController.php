@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\TrainersRepository;
+use App\Repositories\AccountsRepository;
 
 class AccountsController extends Controller
 {
     public function init()
     {
-        $this->repository = new TrainersRepository();
+        $this->repository = new AccountsRepository();
         
-        $this->route = 'trainers';
+        $this->route = 'accounts';
     }
 }
