@@ -56,22 +56,11 @@ class LoginController extends Controller
             'username' => $request->input('mobile'),
             'code' => $request->input('code'),
         ];
-        
         $result = $this->repository->login($data);
-return $result;
-        $adminInfo = null;
-        if($resp['success'] === true) {
-            $adminInfo = $resp['data'];
-        } elseif($resp['error_no'] === ResponseStatus::ADMIN_STATE_INVALID) {
-            return $request->response([trans('login.admin_state_err')]);
-        } else {
-            return $request->response([trans('login.login_error_msg')]);
-        }
-        if ($adminInfo) {
-            $request->session()->put('id', $adminInfo['id']);
-            $request->session()->put('name', $adminInfo['name']);
-            $request->session()->put('menu', $adminInfo['menu']);
-            $request->session()->put('power', $adminInfo['power']);
+        
+        if(!empty($result)) {
+            $request->session()->put('id', $result['id']);
+            $request->session()->put('account', $result['account']);
         }
         
         return redirect()->route('dashboard');
