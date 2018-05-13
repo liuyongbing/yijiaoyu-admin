@@ -19,11 +19,11 @@
                         <div class="form-group">
                             <input id="mobile" class="form-control" type="text" name="mobile" placeholder="手机号">
                         </div>
-                        <div class="form-group">
-                            <input class="form-control" type="text" name="code" placeholder="验证码">
+                        <div class="form-group" style="overflow:hidden;">
+                            <input class="form-control code-input" type="text" name="code" placeholder="验证码">
+                            <a id="get_code" href="javascript:void(0);" class="btn btn-lg btn-default code-btn">获取验证码</a>
                         </div>
                         <button class="btn btn-lg btn-primary" type="submit">登录</button>
-                        <a id="get_code" href="javascript:void(0);" class="btn btn-lg btn-default">获取验证码</a>
                     </form>
                 </div>
             </div>

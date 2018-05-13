@@ -20,7 +20,7 @@ Route::get('/dashboard', 'DashboardController@dashboard')->name('dashboard');
 Route::group(['namespace' => 'Auth'], function () {
     Route::get('/login', 'LoginController@login')->name('login');
     Route::get('/logout', 'LoginController@logout')->name('logout');
-    Route::post('/auth', 'LoginController@auth')->name('auth');
+    Route::post('/login', 'LoginController@auth')->name('auth');
 });
 //用户
 Route::resource('users', 'UsersController');
