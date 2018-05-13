@@ -44,4 +44,9 @@ class AccountsRepository extends Repository
         ];
         return $this->endPoint->update($id, $params);
     }
+    
+    public function login($data = [])
+    {
+        return $this->endPoint->login($data);
+    }
 }

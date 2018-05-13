@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Repositories\UsersRepository;
+use App\Repositories\AccountsRepository;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 
@@ -43,7 +43,7 @@ class LoginController extends Controller
     
     public function init()
     {
-        $this->repository = new UsersRepository();
+        $this->repository = new AccountsRepository();
     }
     
     public function login(){
@@ -54,7 +54,7 @@ class LoginController extends Controller
     {
         $data = [
             'username' => $request->input('mobile'),
-            'verifycode' => $request->input('code'),
+            'code' => $request->input('code'),
         ];
         
         $result = $this->repository->login($data);
