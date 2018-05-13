@@ -27,4 +27,21 @@ class AccountsRepository extends Repository
         ];
         return $this->endPoint->store($params);
     }
+    
+    /**
+     * 修改
+     *
+     * @param int $id
+     * @param array $data
+     * @return array
+     */
+    public function update($id, $data = [])
+    {
+        $params = [
+            'user_type' => $data['account_type'],
+            'username' => $data['account'],
+            'status' => $data['status'],
+        ];
+        return $this->endPoint->update($id, $params);
+    }
 }

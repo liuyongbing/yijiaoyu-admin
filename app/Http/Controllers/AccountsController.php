@@ -49,31 +49,13 @@ class AccountsController extends Controller
     {
         $item = $this->repository->detail($id);
         
-        $repository = new CoursesRepository();
-        //$courseId = $request->input('course_id');
-        $course = $repository->detail($item['course_id']);
+        $accountTypes = Dictionary::ACCOUNT_TYPE;
         
         return view($this->route . '.edit', [
             'route' => $this->route,
             'item' => $item,
-            'course' => $course
+            'accountTypes' => $accountTypes
         ]);
-    }
-    
-    /**
-     * 修改 put
-     *
-     * @param Request $request
-     * @param int $id
-     */
-    public function update(Request $request, $id)
-    {
-        $data = $request->input('Record');
-        $data['image'] = $this->upload($request);
-        //echo '<pre>';print_r($data);exit();
-        $response = $this->repository->update($id, $data);
-        
-        return redirect()->route($this->route . '.index');
     }
     
     /**
