@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <footer role="contentinfo">
-                    <p class="text-center">Copyright &copy; 2016 Global China Law. All rights reserved.</p>
+                    <p class="text-center">{{ trans('common.copyright') }}</p>
                 </footer>
             </div>
         </div>

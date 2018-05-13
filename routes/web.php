@@ -36,6 +36,8 @@ Route::resource('courses', 'CoursesController');
 Route::resource('teachings', 'TeachingsController');
 //资讯
 Route::resource('news', 'NewsController');
+//账号管理
+Route::resource('accounts', 'AccountsController');
 //附件上传
 Route::post('/attachment/upload', 'AttachmentController@upload')->name('attachment.upload');
 Route::get('/attachment/demo', 'AttachmentController@demo')->name('attachment.demo');

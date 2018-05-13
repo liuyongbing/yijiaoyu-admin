@@ -4,16 +4,11 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Models
+    | Common
     |--------------------------------------------------------------------------
     |
     */
     
-    'grades' => '班级',
-    'courses' => '课程',
-    'teachings' => '课件',
-    'trainers' => '教练',
-    'branches' => '分馆',
-    'news' => '资讯',
-    'accounts' => '账号',
+    'app_name' => '翼教育后台管理系统',
+    'copyright' => 'Copyright &copy; 100yjy.com All rights reserved.'
 ];

@@ -1,0 +1,15 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Repositories\TrainersRepository;
+
+class AccountsController extends Controller
+{
+    public function init()
+    {
+        $this->repository = new TrainersRepository();
+        
+        $this->route = 'trainers';
+    }
+}
