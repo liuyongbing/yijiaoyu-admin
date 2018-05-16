@@ -46,19 +46,23 @@ class LoginController extends Controller
         $this->repository = new AccountsRepository();
     }
     
-    public function login(){
+    public function login()
+    {
         return view('auth.login');
     }
     
     public function auth(Request $request)
     {
+        $data = $request->input('Login');
+        
         $data = [
-            'username' => $request->input('mobile'),
-            'code' => $request->input('code'),
+            'username' => $data['mobile'],
+            'code' => $data['code']
         ];
         $result = $this->repository->login($data);
         
-        if(!empty($result)) {
+        if(!empty($result['id']) && !empty($result['account']))
+        {
             $request->session()->put('id', $result['id']);
             $request->session()->put('account', $result['account']);
         }

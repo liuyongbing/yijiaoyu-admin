@@ -20,7 +20,7 @@
     
     <div class="form-group">
         <!--内容-->
-        @include('form.contents', ['item' => $item])
+        @include('form.contents_ueditor', ['item' => $item])
     </div>
     
     <div class="form-group">
