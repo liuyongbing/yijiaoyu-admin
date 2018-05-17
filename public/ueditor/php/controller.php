@@ -5,6 +5,14 @@ date_default_timezone_set("Asia/chongqing");
 error_reporting(E_ERROR);
 header("Content-Type: text/html; charset=utf-8");
 
+define('ROOT_PATH', dirname(dirname(dirname(__DIR__))));
+require ROOT_PATH . '/vendor/autoload.php';
+$app = require ROOT_PATH . '/bootstrap/app.php';
+$kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
+$response = $kernel->handle(
+    $request = Illuminate\Http\Request::capture()
+);
+
 $CONFIG = json_decode(preg_replace("/\/\*[\s\S]+?\*\//", "", file_get_contents("config.json")), true);
 $action = $_GET['action'];
 

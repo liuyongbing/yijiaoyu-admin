@@ -1,4 +1,5 @@
 <?php
+use App\Repositories\AttachmentRepository;
 
 /**
  * Created by JetBrains PhpStorm.
@@ -63,7 +64,7 @@ class Uploader
             $this->upFile();
         }
 
-        $this->stateMap['ERROR_TYPE_NOT_ALLOWED'] = iconv('unicode', 'utf-8', $this->stateMap['ERROR_TYPE_NOT_ALLOWED']);
+        //$this->stateMap['ERROR_TYPE_NOT_ALLOWED'] = iconv('unicode', 'utf-8 ', $this->stateMap['ERROR_TYPE_NOT_ALLOWED']);
     }
 
     /**
@@ -118,9 +119,28 @@ class Uploader
         }
 
         //移动文件
-        if (!(move_uploaded_file($file["tmp_name"], $this->filePath) && file_exists($this->filePath))) { //移动失败
+        /* if (!(move_uploaded_file($file["tmp_name"], $this->filePath) && file_exists($this->filePath))) { //移动失败
             $this->stateInfo = $this->getStateInfo("ERROR_FILE_MOVE");
         } else { //移动成功
+            $this->stateInfo = $this->stateMap[0];
+        } */
+        
+        //upload to file server
+        $data = [
+            'name'     => 'upload_file',
+            'contents' => fopen($file['tmp_name'], 'r'),
+            'filename' => $file['name']
+        ];
+        $repository = new AttachmentRepository();
+        $repository->setFiletype('website');
+        $response = $repository->upload($data);
+        
+        if (empty($response['filename'])) {
+            $this->stateInfo = $this->getStateInfo("ERROR_FILE_MOVE");
+        } else  {
+            $this->fileName = $response['filename'];
+            $this->fullName = $response['file_url'];
+            
             $this->stateInfo = $this->stateMap[0];
         }
     }

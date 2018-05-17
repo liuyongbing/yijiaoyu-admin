@@ -7,7 +7,12 @@ use Illuminate\Http\Request;
 
 class AttachmentController extends Controller
 {
-    public function upload(Request $request, AttachmentRepository $repository)
+    public function init()
+    {
+        $this->repository = new AttachmentRepository();
+    }
+    
+    public function upload(Request $request)
     {
         $data = [];
         
@@ -20,8 +25,8 @@ class AttachmentController extends Controller
             ];
         }
         
-        $repository->setFiletype('courseware');
-        $response = $repository->upload($data);
+        $this->repository->setFiletype('courseware');
+        $response = $this->repository->upload($data);
         return $this->response($response);
     }
     

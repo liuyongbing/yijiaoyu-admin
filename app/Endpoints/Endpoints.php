@@ -82,8 +82,6 @@ class Endpoints
      */
     public function upload($data)
     {
-//var_dump($this->api);
-//print_r($data);exit();
         $response = ApiClient::upload($this->api, $data, static::headers());
         
         return $this->response($response);
