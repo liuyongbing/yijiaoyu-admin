@@ -9,26 +9,25 @@
                 </div>
                 <div class="collapse navbar-collapse main-navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <!--$verticalNavbarActive == $key ? 'class=active' : ''-->
-                        <li>
+                        <!--li>
                             <a href="{{ route('branches.index') }}">{{ trans('models.branches') }}管理</a>
                         </li>
                         <li>
                             <a href="{{ route('trainers.index') }}">{{ trans('models.trainers') }}管理</a>
-                        </li>
-                        <li>
+                        </li-->
+                        <li class="{{ in_array(Route::currentRouteName(), ['grades.index', 'grades.edit']) ? 'active' : '' }}">
                             <a href="{{ route('grades.index') }}">{{ trans('models.grades') }}管理</a>
                         </li>
-                        <li>
+                        <li class="{{ in_array(Route::currentRouteName(), ['courses.index', 'courses.edit']) ? 'active' : '' }}">
                             <a href="{{ route('courses.index') }}">{{ trans('models.courses') }}管理</a>
                         </li>
-                        <li>
+                        <li class="{{ in_array(Route::currentRouteName(), ['teachings.index', 'teachings.edit']) ? 'active' : '' }}">
                             <a href="{{ route('teachings.index') }}">{{ trans('models.teachings') }}管理</a>
                         </li>
-                        <li>
+                        <li class="{{ in_array(Route::currentRouteName(), ['news.index', 'news.edit']) ? 'active' : '' }}">
                             <a href="{{ route('news.index') }}">{{ trans('models.news') }}管理</a>
                         </li>
-                        <li>
+                        <li class="{{ in_array(Route::currentRouteName(), ['accounts.index', 'accounts.edit']) ? 'active' : '' }}">
                             <a href="{{ route('accounts.index') }}">{{ trans('models.accounts') }}管理</a>
                         </li>
                     </ul>
