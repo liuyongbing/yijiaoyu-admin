@@ -9,12 +9,12 @@ class AccountsEndpoint extends Endpoints
 {
     public function init()
     {
-        $this->api = 'accounts/editor';
+        $this->api = 'accounts';
     }
     
     public function login($data)
     {
-        $response = ApiClient::post($this->api . '/login', $data);
+        $response = ApiClient::post($this->api . '/editor/login', $data);
         
         return $this->response($response);
     }
