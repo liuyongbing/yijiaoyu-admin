@@ -15,7 +15,7 @@
     
     <div class="form-group">
         <!--标题-->
-        @include('form.title', ['item' => $item])
+        @include('form.title_news', ['item' => $item])
     </div>
     
     <div class="form-group">
