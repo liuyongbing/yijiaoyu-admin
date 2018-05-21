@@ -9,7 +9,7 @@ class AccountsEndpoint extends Endpoints
 {
     public function init()
     {
-        $this->api = 'accounts';
+        $this->api = 'accounts/editor';
     }
     
     public function login($data)
