@@ -11006,5 +11006,5 @@ body {
 
 /*# sourceMappingURL=app.css.map */
 
-.code-input{ width: 200px; float: left;}
-.code-btn{float: right;height: 39px; line-height: 39px; padding: 0 16px;}
+.code-input{ width: 196px; float: left;}
+.code-btn{width:140px; float: right;height: 39px; line-height: 39px; padding: 0 16px;}
