@@ -11,7 +11,7 @@
     <title>@yield('title')</title>
 
     <!-- Styles -->
-    <link href="{{ asset(elixir('css/app.css')) }}?20180426" rel="stylesheet">
+    <link href="{{ asset(elixir('css/app.css')) }}?20180524" rel="stylesheet">
     <link href="{{ asset(elixir('third/bootstrap-treeview.min.css')) }}" rel="stylesheet">
 {{--    <link href="{{ asset(elixir('css/jquery-ui.min.css')) }}" rel="stylesheet">--}}
     @yield('style')

@@ -24,7 +24,7 @@
                             <input id="get_code" type="button" class="btn btn-lg btn-default code-btn" value="获取验证码" onclick="sendcode()" /> 
 
                         </div>
-                        <button id="btn_login" class="btn btn-lg btn-primary" type="submit">登录</button>
+                        <button id="btn_login" class="btn btn-lg btn-primary" type="button">登录</button>
                     </form>
                 </div>
             </div>
@@ -46,11 +46,34 @@
                 alert('请输入验证码');
                 return false;
             }
-            $('#form_login').submit();
+            //$('#form_login').submit();
+        
+            $.ajax({
+                method: "POST",
+                url: "{{ route('auth') }}",
+                data: { 
+                    '_token' : '{{ csrf_token() }}',
+                    'Login[mobile]' : mobile,
+                    'Login[code]' : code
+                },
+                dataType: 'json',
+                success: function(response) {
+                    if (response.status != 'success') {
+                        alert(response.message);
+                        return false;
+                    }
+                    
+                    window.location.href = "{{ route('dashboard') }}";
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown)
+                {
+                    alert('服务器错误');
+                }
+            })
         });
     });
     //验证码
-    var countdown=60; 
+    var countdown=120; 
     function sendcode() {
         var mobile = $('#mobile').val();
         if (!mobile) {
@@ -78,7 +101,7 @@
             obj.attr('disabled',false); 
             //obj.removeattr("disabled"); 
             obj.val("获取验证码");
-            countdown = 60; 
+            countdown = 120; 
             return;
         } else { 
             obj.attr('disabled',true);

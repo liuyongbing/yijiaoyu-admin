@@ -131,9 +131,17 @@ class Endpoints
     protected function response($response)
     {
         $result = [];
-        if ($response['status'] === 'success') {
+        if ($response['status'] === 'success')
+        {
             $result = $response['result'];
-        } else {
+        }
+        elseif ($response['status'] === 'error')
+        {
+            $result = $response;
+            unset($result['result']);
+        }
+        else
+        {
             $result = static::handleError($response);
         }
         

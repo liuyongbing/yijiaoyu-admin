@@ -53,21 +53,25 @@ class LoginController extends Controller
     
     public function auth(Request $request)
     {
-        $data = $request->input('Login');
+        $response = ['status' => 'success'];
         
+        $data = $request->input('Login');
         $data = [
             'username' => $data['mobile'],
             'code' => $data['code']
         ];
-        $result = $this->repository->login($data);
         
+        $result = $this->repository->login($data);
         if(!empty($result['id']) && !empty($result['account']))
         {
             $request->session()->put('id', $result['id']);
             $request->session()->put('account', $result['account']);
         }
-        
-        return redirect()->route('dashboard');
+        else
+        {
+            $response = $result;
+        }
+        return $response;
     }
     
     /**
