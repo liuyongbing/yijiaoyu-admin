@@ -15,15 +15,19 @@
                         <li>
                             <a href="{{ route('trainers.index') }}">{{ trans('models.trainers') }}管理</a>
                         </li-->
-                        <li class="{{ in_array(Route::currentRouteName(), ['grades.index', 'grades.edit', 'grades.add']) ? 'active' : '' }}">
-                            <a href="{{ route('grades.index') }}">{{ trans('models.grades') }}管理</a>
+                        <li class="{{ in_array(Route::currentRouteName(), [
+                            'grades.index', 'grades.edit', 'grades.add',
+                            'courses.index', 'courses.edit', 'courses.add',
+                            'teachings.index', 'teachings.edit', 'teachings.add'
+                        ]) ? 'active' : '' }}">
+                            <a href="{{ route('grades.index') }}">{{ trans('brand.taiquandao') }}管理</a>
                         </li>
-                        <li class="{{ in_array(Route::currentRouteName(), ['courses.index', 'courses.edit', 'courses.add']) ? 'active' : '' }}">
+                        <!--li class="{{ in_array(Route::currentRouteName(), ['courses.index', 'courses.edit', 'courses.add']) ? 'active' : '' }}">
                             <a href="{{ route('courses.index') }}">{{ trans('models.courses') }}管理</a>
-                        </li>
-                        <li class="{{ in_array(Route::currentRouteName(), ['teachings.index', 'teachings.edit', 'teachings.add']) ? 'active' : '' }}">
+                        </li-->
+                        <!--li class="{{ in_array(Route::currentRouteName(), ['teachings.index', 'teachings.edit', 'teachings.add']) ? 'active' : '' }}">
                             <a href="{{ route('teachings.index') }}">{{ trans('models.teachings') }}管理</a>
-                        </li>
+                        </li-->
                         <li class="{{ in_array(Route::currentRouteName(), ['news.index', 'news.edit', 'news.add']) ? 'active' : '' }}">
                             <a href="{{ route('news.index') }}">{{ trans('models.news') }}管理</a>
                         </li>
