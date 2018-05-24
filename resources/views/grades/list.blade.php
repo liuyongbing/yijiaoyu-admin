@@ -41,6 +41,10 @@
                                                 <i class="glyphicon glyphicon-edit glyphicon-white"></i>
                                                 {{ trans('actions.edit') }}
                                             </a>
+                                            <a href="{{ route('courses.index', ['grade_id' => $item['id']]) }}" target="_blank" class="btn btn-sm btn-primary">
+                                                <i class="glyphicon glyphicon-list glyphicon-white"></i>
+                                                {{ trans('actions.view_courses') }}
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach

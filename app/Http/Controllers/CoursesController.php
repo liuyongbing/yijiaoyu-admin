@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Constants\Dictionary;
 use App\Repositories\CoursesRepository;
 use App\Repositories\GradesRepository;
 use Illuminate\Http\Request;
@@ -13,6 +14,38 @@ class CoursesController extends Controller
         $this->repository = new CoursesRepository();
         
         $this->route = 'courses';
+    }
+    
+    /**
+     * 列表
+     *
+     * @param Request $request
+     */
+    public function index(Request $request)
+    {
+        $gradeId = $request->input('grade_id', 0);
+        
+        $page = $request->input('page', 1);
+        $size = Dictionary::PAGE_SIZE;
+        
+        $params = [
+            'grade_id' => $gradeId
+        ];
+        
+        $results = $this->repository->list($params, $page, $size);
+        
+        return view($this->route . '.list', [
+            'route' => $this->route,
+            'items' => isset($results['list']) ? $results['list'] : [],
+            'filters' => [],
+            'gradeId' => $gradeId,
+            'pagination' => [
+                'route' => $this->route . '.index',
+                'page' => $page,
+                'size' => $size,
+                'total' => isset($results['total']) ? $results['total'] : 0
+            ]
+        ]);
     }
     
     /**

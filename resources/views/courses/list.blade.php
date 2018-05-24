@@ -7,7 +7,7 @@
     <div class="col-md-12">
         <div class="row">
             <div class="col-md-12">
-                <a href="{{ route($route . '.create') }}" class="btn btn-success btn-sm">
+                <a href="{{ route($route . '.create', ['grade_id' => $gradeId]) }}" class="btn btn-success btn-sm">
                     <i class="glyphicon glyphicon-plus glyphicon-white"></i> {{ trans('actions.add') }}
                 </a>
             </div>
@@ -44,6 +44,10 @@
                                             <a href="{{ route($route . '.edit', $item['id']) }}" target="_blank" class="btn btn-sm btn-primary">
                                                 <i class="glyphicon glyphicon-edit glyphicon-white"></i>
                                                 {{ trans('actions.edit') }}
+                                            </a>
+                                            <a href="{{ route('teachings.index', ['course_id' => $item['id']]) }}" target="_blank" class="btn btn-sm btn-primary">
+                                                <i class="glyphicon glyphicon-list glyphicon-white"></i>
+                                                {{ trans('actions.view_teachings') }}
                                             </a>
                                         </td>
                                     </tr>

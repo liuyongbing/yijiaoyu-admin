@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Constants\Dictionary;
 use App\Repositories\CoursesRepository;
 use App\Repositories\TeachingsRepository;
 use Illuminate\Http\Request;
@@ -13,6 +14,37 @@ class TeachingsController extends Controller
         $this->repository = new TeachingsRepository();
         
         $this->route = 'teachings';
+    }
+    
+    /**
+     * 列表
+     *
+     * @param Request $request
+     */
+    public function index(Request $request)
+    {
+        $courseId = $request->input('course_id', 0);
+        
+        $page = $request->input('page', 1);
+        $size = Dictionary::PAGE_SIZE;
+        
+        $params = [
+            'course_id' => $courseId
+        ];
+        $results = $this->repository->list($params, $page, $size);
+        
+        return view($this->route . '.list', [
+            'route' => $this->route,
+            'items' => isset($results['list']) ? $results['list'] : [],
+            'filters' => [],
+            'courseId' => $courseId,
+            'pagination' => [
+                'route' => $this->route . '.index',
+                'page' => $page,
+                'size' => $size,
+                'total' => isset($results['total']) ? $results['total'] : 0
+            ]
+        ]);
     }
     
     /**

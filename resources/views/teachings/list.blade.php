@@ -7,7 +7,7 @@
     <div class="col-md-12">
         <div class="row">
             <div class="col-md-12">
-                <a href="{{ route($route . '.create') }}" class="btn btn-success btn-sm">
+                <a href="{{ route($route . '.create', ['course_id' => $courseId]) }}" class="btn btn-success btn-sm">
                     <i class="glyphicon glyphicon-plus glyphicon-white"></i> {{ trans('actions.add') }}
                 </a>
             </div>
