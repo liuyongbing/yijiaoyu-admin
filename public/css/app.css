@@ -567,7 +567,8 @@ cite {
 }
 
 .text-muted {
-  color: #999;
+  color: #000;
+  font-weight: bold;
 }
 
 .text-primary {

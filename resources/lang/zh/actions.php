@@ -10,6 +10,7 @@ return [
     */
 
     'add' => '增加',
+    'cancel' => '取消',
     'confirm' => '确定',
     'detail' => '详情',
     'edit' => '编辑',
@@ -17,9 +18,6 @@ return [
     'save' => '保存',
     'submit' => '提交',
     'view' => '查看',
-    'view_courses' => '查看课程',
-    'view_teachings' => '查看课时',
-//     '' => '',
 //     '' => '',
 
 ];
