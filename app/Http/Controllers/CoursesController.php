@@ -115,6 +115,8 @@ class CoursesController extends Controller
         
         $response = $this->repository->store($data);
         
-        return redirect()->route($this->route . '.index');
+        return redirect()->route($this->route . '.index', [
+            'grade_id' => (int)$data['grade_id']
+        ]);
     }
 }

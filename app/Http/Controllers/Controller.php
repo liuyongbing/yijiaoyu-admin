@@ -21,6 +21,10 @@ class Controller extends BaseController
     public function __construct()
     {
         $this->init();
+        
+        View::share([
+            'STATIC_VERSION' => '?v=' . env('APP_STATIC_VERSION', date('Ymd')),
+        ]);
     }
     
     public function init()
