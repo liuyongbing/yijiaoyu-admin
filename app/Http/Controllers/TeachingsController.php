@@ -31,7 +31,11 @@ class TeachingsController extends Controller
         $params = [
             'course_id' => $courseId
         ];
-        $results = $this->repository->list($params, $page, $size);
+        $orderBy = [
+            'class_number' => 'asc',
+            'sort' => 'asc',
+        ];
+        $results = $this->repository->list($params, $page, $size, $orderBy);
         
         return view($this->route . '.list', [
             'route' => $this->route,

@@ -24,18 +24,18 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th>{{ trans('inputs.name') }}</th>
                                     <th>{{ trans('inputs.course') }}</th>
+                                    <th>{{ trans('inputs.class_number') }}</th>
                                     <th>{{ trans('inputs.sort') }}</th>
                                     <th>{{ trans('inputs.status') }}</th>
                                     <th>{{ trans('inputs.operation') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($items as $item)
+                                @foreach($items as $key => $item)
                                     <tr>
-                                        <td>{{ $item['title'] }}</td>
                                         <td>{{ $item['course_name'] }}</td>
+                                        <td>{{ $item['class_number'] }}</td>
                                         <td>{{ $item['sort'] }}</td>
                                         <td>{{ $item['status_desc'] }}</td>
                                         <td>
