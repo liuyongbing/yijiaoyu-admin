@@ -17,7 +17,7 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <div class="text-muted bootstrap-admin-box-title">{{ trans('actions.list') }}</div>
+                        <div class="text-muted bootstrap-admin-box-title">{{ trans('models.' . $route) }}{{ trans('actions.list') }}</div>
                         <div class="pull-right"><span class="badge"></span></div>
                     </div>
                     <div class="bootstrap-admin-panel-content">
