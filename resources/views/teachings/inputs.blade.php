@@ -14,12 +14,7 @@
     
     <div class="form-group">
         <!--内容-->
-        @include('form.content', ['item' => $item])
-    </div>
-                                
-    <div class="form-group">
-        <!--图片-->
-        @include('form.file', ['item' => $item])
+        @include('form.contents_ueditor_teaching', ['item' => $item])
     </div>
     
     <div class="form-group">

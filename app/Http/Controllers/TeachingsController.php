@@ -80,8 +80,6 @@ class TeachingsController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->input('Record');
-        $data['image'] = $this->upload($request);
-//echo '<pre>';print_r($data);exit();
         $response = $this->repository->update($id, $data);
 
         return redirect()->route($this->route . '.index');
@@ -116,7 +114,6 @@ class TeachingsController extends Controller
     public function store(Request $request)
     {
         $data = $request->input('Record');
-        $data['image'] = $this->upload($request);
         
         $response = $this->repository->store($data);
         
