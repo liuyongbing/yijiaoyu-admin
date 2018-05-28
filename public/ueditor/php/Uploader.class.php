@@ -92,7 +92,7 @@ class Uploader
         $this->oriName = $file['name'];
         $this->fileSize = $file['size'];
         $this->fileType = $this->getFileExt();
-        $this->fullName = $this->getFullName();
+        //$this->fullName = $this->getFullName();
         $this->filePath = $this->getFilePath();
         $this->fileName = $this->getFileName();
         $dirname = dirname($this->filePath);
@@ -110,13 +110,13 @@ class Uploader
         }
 
         //创建目录失败
-        if (!file_exists($dirname) && !mkdir($dirname, 0777, true)) {
+        /* if (!file_exists($dirname) && !mkdir($dirname, 0777, true)) {
             $this->stateInfo = $this->getStateInfo("ERROR_CREATE_DIR");
             return;
         } else if (!is_writeable($dirname)) {
             $this->stateInfo = $this->getStateInfo("ERROR_DIR_NOT_WRITEABLE");
             return;
-        }
+        } */
 
         //移动文件
         /* if (!(move_uploaded_file($file["tmp_name"], $this->filePath) && file_exists($this->filePath))) { //移动失败
@@ -132,7 +132,8 @@ class Uploader
             'filename' => $file['name']
         ];
         $repository = new AttachmentRepository();
-        $repository->setFiletype('website');
+        $repFileType = !empty($_GET['filetype']) ? $_GET['filetype'] : 'website';
+        $repository->setFiletype($repFileType);
         $response = $repository->upload($data);
         
         if (empty($response['filename'])) {

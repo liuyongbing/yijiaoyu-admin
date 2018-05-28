@@ -27,6 +27,11 @@
 
     //对编辑器的操作最好在编辑器ready之后再做
     ue.ready(function () {
+        ue.execCommand('serverparam', function(editor) {
+            return {
+                'filetype': 'courseware'
+            };
+        });
         ue.setContent($('#ueditor_container_value').attr('data-value'));
     });
 </script>
