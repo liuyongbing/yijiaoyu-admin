@@ -1,6 +1,6 @@
 <label class="col-md-2 control-label">{{ trans('inputs.content') }}<span class="star-must">*</span></label>
 <div class="col-md-10">
-    <script id="ueditor_container_value" type="text/plain" data-value="@if(null !== old('Record')['summary']){{ '<p>'.old('Record')['summary'].'</p>' }}@else{{ htmlspecialchars($item['summary']) }}@endif"></script>
+    <script id="ueditor_container_value" type="text/plain" data-value="@if(null !== old('Record')['content']){{ '<p>'.old('Record')['content'].'</p>' }}@else{{ htmlspecialchars($item['content']) }}@endif"></script>
     <script id="ueditor_container" name="Record[summary]" type="text/plain" ></script>
 </div>
 
