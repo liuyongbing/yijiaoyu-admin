@@ -82,7 +82,9 @@ class TeachingsController extends Controller
         $data = $request->input('Record');
         $response = $this->repository->update($id, $data);
 
-        return redirect()->route($this->route . '.index');
+        return redirect()->route($this->route . '.index', [
+            'course_id' => $data['course_id']
+        ]);
     }
     
     /**

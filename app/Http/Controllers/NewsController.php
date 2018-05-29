@@ -34,6 +34,7 @@ class NewsController extends Controller
             'categories' => isset($categories['list']) ? $categories['list'] : [],
             'branches' => isset($branches['list']) ? $branches['list'] : [],
             'item' => [
+                'content' => '',
                 'status' => 1
             ]
         ]);
