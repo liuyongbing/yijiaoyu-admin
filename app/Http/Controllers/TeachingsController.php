@@ -101,6 +101,7 @@ class TeachingsController extends Controller
         return view($this->route . '.add', [
             'route' => $this->route,
             'item' => [
+                'content' => '',
                 'course_id' => $course['id'],
                 'status' => 1
             ],
