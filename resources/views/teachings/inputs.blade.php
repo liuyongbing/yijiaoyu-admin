@@ -18,8 +18,8 @@
     </div>
     
     <div class="form-group">
-        <!--排序-->
-        @include('form.sort', ['item' => $item])
+        <!--页码-->
+        @include('form.page_number', ['item' => $item])
     </div>
     
     <div class="form-group">

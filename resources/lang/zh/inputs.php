@@ -32,6 +32,7 @@ return [
     'mobile' => '手机',
     'name' => '名称',
     'operation' => '操作',
+    'page_number' => '页码',
     'summary' => '描述',
     'sort' => '排序',
     'status' => '状态',

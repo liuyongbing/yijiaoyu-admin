@@ -26,7 +26,7 @@
                                 <tr>
                                     <th>{{ trans('inputs.course') }}</th>
                                     <th>{{ trans('inputs.class_number') }}</th>
-                                    <th>{{ trans('inputs.sort') }}</th>
+                                    <th>{{ trans('inputs.page_number') }}</th>
                                     <th>{{ trans('inputs.status') }}</th>
                                     <th>{{ trans('inputs.operation') }}</th>
                                 </tr>
