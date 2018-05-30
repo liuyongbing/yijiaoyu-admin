@@ -22,24 +22,26 @@ Route::group(['namespace' => 'Auth'], function () {
     Route::get('/logout', 'LoginController@logout')->name('logout');
     Route::post('/login', 'LoginController@auth')->name('auth');
 });
-//用户
-Route::resource('users', 'UsersController');
-//教练
-Route::resource('trainers', 'TrainersController');
-//分馆
-Route::resource('branches', 'BranchesController');
-//班级
-Route::resource('grades', 'GradesController');
-//课程
-Route::resource('courses', 'CoursesController');
-//课件
-Route::resource('teachings', 'TeachingsController');
-//资讯
-Route::resource('news', 'NewsController');
-//账号管理
+//Account(账号管理)
 Route::resource('accounts', 'AccountsController');
-//附件上传
+//Apply(加盟申请)
+Route::resource('apply', 'ApplyController');
+//Attachment(附件上传)
 Route::post('/attachment/upload', 'AttachmentController@upload')->name('attachment.upload');
 Route::get('/attachment/demo', 'AttachmentController@demo')->name('attachment.demo');
-//短信
+//Branch(分馆)
+Route::resource('branches', 'BranchesController');
+//Course(课程)
+Route::resource('courses', 'CoursesController');
+//Grade(班级)
+Route::resource('grades', 'GradesController');
+//News(资讯)
+Route::resource('news', 'NewsController');
+//SMS(短信)
 Route::post('/sms/send', 'SmsController@send')->name('sms.send');
+//Teaching(课件)
+Route::resource('teachings', 'TeachingsController');
+//Trainer(教练)
+Route::resource('trainers', 'TrainersController');
+//User(用户)
+Route::resource('users', 'UsersController');
