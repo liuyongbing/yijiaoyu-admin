@@ -15,6 +15,7 @@ return [
     'detail' => '详情',
     'edit' => '编辑',
     'list' => '列表',
+    'new_window' => '是否在新窗口打开',
     'save' => '保存',
     'submit' => '提交',
     'view' => '查看',

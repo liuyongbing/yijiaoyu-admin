@@ -35,6 +35,7 @@ return [
     'name' => '名称',
     'operation' => '操作',
     'page_number' => '页码',
+    'position' => '位置',
     'province_city_area' => '省/市/区',
     'remark' => '备注',
     'summary' => '描述',
@@ -42,6 +43,8 @@ return [
     'status' => '状态',
     'status_yes' => '有效',
     'status_no' => '无效',
+    'target' => '打开方式',
     'title' => '标题',
+    'url' => '链接',
     'username' => '姓名',
 ];

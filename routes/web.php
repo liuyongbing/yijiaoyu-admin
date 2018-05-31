@@ -29,6 +29,8 @@ Route::resource('apply', 'ApplyController');
 //Attachment(附件上传)
 Route::post('/attachment/upload', 'AttachmentController@upload')->name('attachment.upload');
 Route::get('/attachment/demo', 'AttachmentController@demo')->name('attachment.demo');
+//Banner:头图
+Route::resource('banner', 'BannerController');
 //Branch(分馆)
 Route::resource('branches', 'BranchesController');
 //Course(课程)
