@@ -32,6 +32,7 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            @if (!empty($items))
                                 @foreach($items as $key => $item)
                                     <tr>
                                         <td>{{ $item['course_name'] }}</td>
@@ -46,6 +47,9 @@
                                         </td>
                                     </tr>
                                 @endforeach
+                            @else
+                                @include('include.no_data', ['column' => 10])
+                            @endif
                             </tbody>
                         </table>
                     </div>
