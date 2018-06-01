@@ -22,6 +22,7 @@ return [
     'content' => '内容',
     'contents' => '内容',
     'course' => '课程',
+    'created_at' => '发布时间',
     'display_type' => '显示方式',
     'email' => '邮箱',
     'expiry_date' => '预计加盟时间',

@@ -25,8 +25,9 @@
                             <thead>
                                 <tr>
                                     <th>{{ trans('inputs.title') }}</th>
-                                    <th>{{ trans('inputs.sort') }}</th>
+                                    <th>{{ trans('inputs.category') }}</th>
                                     <th>{{ trans('inputs.status') }}</th>
+                                    <th>{{ trans('inputs.created_at') }}</th>
                                     <th>{{ trans('inputs.operation') }}</th>
                                 </tr>
                             </thead>
@@ -35,8 +36,9 @@
                                 @foreach($items as $item)
                                     <tr>
                                         <td>{{ $item['title'] }}</td>
-                                        <td>{{ $item['sort'] }}</td>
+                                        <td>{{ $item['category_name'] }}</td>
                                         <td>{{ $item['status_desc'] }}</td>
+                                        <td>{{ $item['created_at'] }}</td>
                                         <td>
                                             <a href="{{ route($route . '.edit', $item['id']) }}" target="_blank" class="btn btn-sm btn-primary">
                                                 <i class="glyphicon glyphicon-edit glyphicon-white"></i>

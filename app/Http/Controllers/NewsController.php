@@ -6,6 +6,7 @@ use App\Repositories\NewsRepository;
 use Illuminate\Http\Request;
 use App\Repositories\CategoriesRepository;
 use App\Repositories\BranchesRepository;
+use App\Constants\Dictionary;
 
 class NewsController extends Controller
 {
@@ -14,6 +15,35 @@ class NewsController extends Controller
         $this->repository = new NewsRepository();
         
         $this->route = 'news';
+    }
+    
+    /**
+     * 列表
+     *
+     * @param Request $request
+     */
+    public function index(Request $request)
+    {
+        $page = $request->input('page', 1);
+        $size = Dictionary::PAGE_SIZE;
+        
+        $params = [];
+        $orderBy = [
+            'id' => 'desc',
+        ];
+        $results = $this->repository->list($params, $page, $size, $orderBy);
+        
+        return view($this->route . '.list', [
+            'route' => $this->route,
+            'items' => isset($results['list']) ? $results['list'] : [],
+            'filters' => [],
+            'pagination' => [
+                'route' => $this->route . '.index',
+                'page' => $page,
+                'size' => $size,
+                'total' => isset($results['total']) ? $results['total'] : 0
+            ]
+        ]);
     }
     
     /**
