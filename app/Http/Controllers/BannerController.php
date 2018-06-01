@@ -18,6 +18,36 @@ class BannerController extends Controller
     }
     
     /**
+     * 列表
+     *
+     * @param Request $request
+     */
+    public function index(Request $request)
+    {
+        $page = $request->input('page', 1);
+        $size = Dictionary::PAGE_SIZE;
+        
+        $params = [];
+        $orderBy = [
+            'position_id' => 'asc',
+            'sort' => 'asc',
+        ];
+        $results = $this->repository->list($params, $page, $size, $orderBy);
+        
+        return view($this->route . '.list', [
+            'route' => $this->route,
+            'items' => isset($results['list']) ? $results['list'] : [],
+            'filters' => [],
+            'pagination' => [
+                'route' => $this->route . '.index',
+                'page' => $page,
+                'size' => $size,
+                'total' => isset($results['total']) ? $results['total'] : 0
+            ]
+        ]);
+    }
+    
+    /**
      * 新增
      *
      * @param Request $request
