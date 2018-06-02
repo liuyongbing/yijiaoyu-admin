@@ -38,7 +38,7 @@ return [
     'page_number' => '页码',
     'province_city_area' => '省/市/区',
     'remark' => '备注',
-    'summary' => '描述',
+    'summary' => '简介',
     'sort' => '排序',
     'status' => '状态',
     'status_yes' => '有效',
