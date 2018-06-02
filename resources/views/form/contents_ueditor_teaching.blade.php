@@ -8,17 +8,13 @@
 <script type="text/javascript">
     var ue = UE.getEditor('ueditor_container', {
         toolbars: [
-            ['undo', 'redo', '|' , 'searchreplace' , 'bold', 'italic',
-                'underline',/* 'fontborder',*/ 'strikethrough', 'superscript',
-                'subscript', 'removeformat', 'formatmatch', 'autotypeset'/*,
-                'blockquote', 'pasteplain'*/, '|' , 'inserttable' , 'forecolor',
-                'backcolor'/*, 'insertorderedlist', 'insertunorderedlist'*/,
-                'fullscreen', '|', 'simpleupload', 'link'
+            ['undo', 'redo', '|' , 'bold', 'italic', 'underline', 'removeformat',
+                'formatmatch', '|' , 'forecolor', 'backcolor', '|', 'simpleupload'
             ]
         ],
         enableAutoSave: false,
         autoFloatEnabled: true,
-        initialFrameHeight: 350,
+        initialFrameHeight: 450,
         retainOnlyLabelPasted : true,
         pasteplain : true,
         enableContextMenu : true,

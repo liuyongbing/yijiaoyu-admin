@@ -48,7 +48,7 @@
                                     </tr>
                                 @endforeach
                             @else
-                                @include('include.no_data', ['column' => 10])
+                                @include('include.no_data')
                             @endif
                             </tbody>
                         </table>

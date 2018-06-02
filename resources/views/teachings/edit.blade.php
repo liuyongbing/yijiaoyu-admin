@@ -28,7 +28,7 @@
                         
                             <input name="_method" type="hidden" value="PUT">
                             
-                            @include($route . '.inputs', ['item' => $item, 'course' => $course])
+                            @include($route . '.inputs')
                         </form>
                     </div>
                 </div>
