@@ -93,12 +93,14 @@ class CoursesController extends Controller
      */
     public function create(Request $request)
     {
+        $gradeId = $request->input('grade_id', 0);
         $repository = new GradesRepository();
         $grades = $repository->all();
         
         return view($this->route . '.add', [
             'route' => $this->route,
             'item' => [
+                'grade_id' => (int)$gradeId,
                 'status' => 1
             ],
             'grades' => $grades['list']
