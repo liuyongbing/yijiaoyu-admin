@@ -58,12 +58,12 @@ class CoursesController extends Controller
         $item = $this->repository->detail($id);
         
         $repository = new GradesRepository();
-        $grades = $repository->all();
+        $grade = $repository->detail($item['grade_id']);
         
         return view($this->route . '.edit', [
             'route' => $this->route,
             'item' => $item,
-            'grades' => $grades['list']
+            'grade' => $grade
         ]);
     }
     
@@ -94,16 +94,16 @@ class CoursesController extends Controller
     public function create(Request $request)
     {
         $gradeId = $request->input('grade_id', 0);
+        
         $repository = new GradesRepository();
-        $grades = $repository->all();
+        $grade = $repository->detail($gradeId);
         
         return view($this->route . '.add', [
             'route' => $this->route,
             'item' => [
-                'grade_id' => (int)$gradeId,
                 'status' => 1
             ],
-            'grades' => $grades['list']
+            'grade' => $grade
         ]);
     }
     

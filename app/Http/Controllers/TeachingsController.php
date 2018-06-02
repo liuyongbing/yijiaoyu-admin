@@ -61,7 +61,6 @@ class TeachingsController extends Controller
         $item = $this->repository->detail($id);
         
         $repository = new CoursesRepository();
-        //$courseId = $request->input('course_id');
         $course = $repository->detail($item['course_id']);
         
         return view($this->route . '.edit', [

@@ -26,11 +26,7 @@
                     <div class="bootstrap-admin-no-table-panel-content bootstrap-admin-panel-content collapse in">
                         <form class="form-horizontal" action="{{ route($route . '.store') }}" method="post" enctype="multipart/form-data">
                             
-                            @include($route . '.inputs', [
-                                'item' => $item,
-                                'route' => $route,
-                                'grades' => $grades
-                            ])
+                            @include($route . '.inputs')
                             
                         </form>
                     </div>
