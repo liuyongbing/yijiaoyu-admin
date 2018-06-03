@@ -9,7 +9,8 @@
     var ue = UE.getEditor('ueditor_container', {
         toolbars: [
             ['undo', 'redo', '|' , 'bold', 'italic', 'underline', 'removeformat',
-                'formatmatch', '|' , 'forecolor', 'backcolor', '|', 'simpleupload'
+                '|', 'paragraph',  'fontfamily', 'fontsize', 'formatmatch', '|',
+                'forecolor', 'backcolor', '|', 'simpleupload', 
             ]
         ],
         enableAutoSave: false,
