@@ -31,6 +31,9 @@
                         <li class="{{ in_array(Route::currentRouteName(), ['news.index', 'news.edit', 'news.add']) ? 'active' : '' }}">
                             <a href="{{ route('news.index') }}">{{ trans('models.news') }}管理</a>
                         </li>
+                        <li class="{{ in_array(Route::currentRouteName(), ['apply.index', 'apply.edit', 'apply.add']) ? 'active' : '' }}">
+                            <a href="{{ route('apply.index') }}">{{ trans('models.apply') }}管理</a>
+                        </li>
                         <li class="{{ in_array(Route::currentRouteName(), ['accounts.index', 'accounts.edit', 'accounts.add']) ? 'active' : '' }}">
                             <a href="{{ route('accounts.index') }}">{{ trans('models.accounts') }}管理</a>
                         </li>
