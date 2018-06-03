@@ -8,12 +8,9 @@
 <script type="text/javascript">
     var ue = UE.getEditor('ueditor_container', {
         toolbars: [
-            ['undo', 'redo', '|' , 'searchreplace' , 'bold', 'italic',
-                'underline',/* 'fontborder',*/ 'strikethrough', 'superscript',
-                'subscript', 'removeformat', 'formatmatch', 'autotypeset'/*,
-                'blockquote', 'pasteplain'*/, '|' , 'inserttable' , 'forecolor',
-                'backcolor'/*, 'insertorderedlist', 'insertunorderedlist'*/,
-                'fullscreen', '|', 'simpleupload', 'link'
+            ['undo', 'redo', '|', 'bold', 'italic', 'underline', 'removeformat',
+                'formatmatch', 'autotypeset', '|', 'paragraph',  'fontfamily', 'fontsize', '|',
+                'inserttable' , 'forecolor', 'backcolor', '|', 'simpleupload', 'link'
             ]
         ],
         enableAutoSave: false,

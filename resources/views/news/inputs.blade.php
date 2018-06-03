@@ -5,32 +5,32 @@
 
     <div class="form-group">
         <!--所属分类-->
-        @include('form.category', ['item' => $item])
+        @include('form.category')
     </div>
 
-    <div class="form-group">
+    <!--div class="form-group"-->
         <!--所属分馆-->
-        <!-- include('form.branch', ['item' => $item]) -->
-    </div>
+        <!-- include('form.branch') -->
+    <!--/div-->
     
     <div class="form-group">
         <!--标题-->
-        @include('form.title_news', ['item' => $item])
+        @include('form.title_news')
     </div>
     
     <div class="form-group">
         <!--内容-->
-        @include('form.contents_ueditor', ['item' => $item])
+        @include('form.contents_ueditor')
     </div>
     
     <div class="form-group">
         <!--排序-->
-        @include('form.sort', ['item' => $item])
+        @include('form.sort')
     </div>
     
     <div class="form-group">
         <!--状态-->
-        @include('form.status', ['item' => $item])
+        @include('form.status')
     </div>
     
     <div class="form-group">
