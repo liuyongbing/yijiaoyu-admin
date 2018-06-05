@@ -45,4 +45,5 @@ return [
     'status_no' => '无效',
     'title' => '标题',
     'username' => '姓名',
+    'year' => '年份',
 ];
