@@ -22,12 +22,9 @@
                         ]) ? 'active' : '' }}">
                             <a href="{{ route('grades.index') }}">{{ trans('brand.taiquandao') }}管理</a>
                         </li>
-                        <!--li class="{{ in_array(Route::currentRouteName(), ['courses.index', 'courses.edit', 'courses.add']) ? 'active' : '' }}">
-                            <a href="{{ route('courses.index') }}">{{ trans('models.courses') }}管理</a>
-                        </li-->
-                        <!--li class="{{ in_array(Route::currentRouteName(), ['teachings.index', 'teachings.edit', 'teachings.add']) ? 'active' : '' }}">
-                            <a href="{{ route('teachings.index') }}">{{ trans('models.teachings') }}管理</a>
-                        </li-->
+                        <li class="{{ in_array(Route::currentRouteName(), ['members.index', 'members.edit', 'members.add']) ? 'active' : '' }}">
+                            <a href="{{ route('members.index') }}">{{ trans('models.members') }}管理</a>
+                        </li>
                         <li class="{{ in_array(Route::currentRouteName(), ['news.index', 'news.edit', 'news.add']) ? 'active' : '' }}">
                             <a href="{{ route('news.index') }}">{{ trans('models.news') }}管理</a>
                         </li>

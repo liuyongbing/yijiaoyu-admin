@@ -43,6 +43,7 @@ return [
     'status' => '状态',
     'status_yes' => '有效',
     'status_no' => '无效',
+    'team' => '团队',
     'title' => '标题',
     'username' => '姓名',
 ];
