@@ -10,7 +10,7 @@
         toolbars: [
             ['undo', 'redo', '|', 'bold', 'italic', 'underline', 'removeformat',
                 'formatmatch', 'autotypeset', '|', 'paragraph',  'fontfamily', 'fontsize', '|',
-                'inserttable' , 'forecolor', 'backcolor', '|', 'simpleupload', 'link'
+                'inserttable' , 'forecolor', 'backcolor', '|', 'simpleupload', 'insertimage', 'link'
             ]
         ],
         enableAutoSave: false,
