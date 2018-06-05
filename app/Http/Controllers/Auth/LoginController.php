@@ -68,6 +68,8 @@ class LoginController extends Controller
         {
             $request->session()->put('id', $result['id']);
             $request->session()->put('account', $result['account']);
+            $request->session()->put('account_type', $result['account_type']);
+            $request->session()->put('name', $result['name']);
         }
         else
         {

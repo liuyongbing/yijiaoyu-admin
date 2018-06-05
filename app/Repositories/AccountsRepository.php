@@ -22,8 +22,9 @@ class AccountsRepository extends Repository
     {
         $params = [
             'user_type' => $data['account_type'],
-            'username' => $data['account'],
-            'status' => $data['status'],
+            'username'  => $data['account'],
+            'name'      => $data['name'],
+            'status'    => $data['status'],
         ];
         return $this->endPoint->store($params);
     }

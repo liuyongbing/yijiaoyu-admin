@@ -28,6 +28,7 @@
     @yield('body')
 
     <!-- Scripts -->
+    <script type="text/javascript" src="{{ asset(elixir('js/jquery-3.1.0.min.js')) }}{{ $STATIC_VERSION }}"></script>
     <script type="text/javascript" src="{{ asset(elixir('js/app.js')) }}{{ $STATIC_VERSION }}"></script>
     <script type="text/javascript" src="{{ asset(elixir('ueditor/ueditor.config.js')) }}{{ $STATIC_VERSION }}"></script>
     <script type="text/javascript" src="{{ asset(elixir('ueditor/ueditor.all.js')) }}{{ $STATIC_VERSION }}"></script>

@@ -27,6 +27,8 @@ class Authenticate
         View::share([
             'id' => $request->session()->get('id'),
             'account' => $request->session()->get('account'),
+            'accountType' => $request->session()->get('account_type'),
+            'adminName' => $request->session()->get('name'),
         ]);
         
         return $next($request);
