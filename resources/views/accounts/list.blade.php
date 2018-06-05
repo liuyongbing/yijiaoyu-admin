@@ -25,6 +25,7 @@
                             <thead>
                                 <tr>
                                     <th>{{ trans('inputs.account_type') }}</th>
+                                    <th>{{ trans('inputs.username') }}</th>
                                     <th>{{ trans('inputs.account') }}</th>
                                     <th>{{ trans('inputs.status') }}</th>
                                     <th>{{ trans('inputs.operation') }}</th>
@@ -35,6 +36,7 @@
                                 @foreach($items as $item)
                                     <tr>
                                         <td>{{ $item['account_type_desc'] }}</td>
+                                        <td>{{ $item['name'] }}</td>
                                         <td>{{ $item['account'] }}</td>
                                         <td>{{ $item['status_desc'] }}</td>
                                         <td>
