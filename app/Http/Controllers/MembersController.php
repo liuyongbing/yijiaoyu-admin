@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Constants\Dictionary;
-use App\Repositories\BranchesRepository;
-use App\Repositories\CategoriesRepository;
 use App\Repositories\MembersRepository;
 use Illuminate\Http\Request;
 
@@ -29,7 +27,9 @@ class MembersController extends Controller
         
         $params = [];
         $orderBy = [
-            'id' => 'desc',
+            'brand_id' => 'asc',
+            'team_type' => 'asc',
+            'sort' => 'asc',
         ];
         $results = $this->repository->list($params, $page, $size, $orderBy);
         
@@ -53,18 +53,14 @@ class MembersController extends Controller
      */
     public function create(Request $request)
     {
-        $brands = Dictionary::;
-        $categories = $cateRep->all();
-        
-        $branchRep = new BranchesRepository();
-        $branches = $branchRep->all();
+        $brands = Dictionary::$brand;
+        $teams = Dictionary::$teamTypes;
         
         return view($this->route . '.add', [
             'route' => $this->route,
-            'categories' => isset($categories['list']) ? $categories['list'] : [],
-            'branches' => isset($branches['list']) ? $branches['list'] : [],
+            'brands' => $brands,
+            'teams' => $teams,
             'item' => [
-                'content' => '',
                 'status' => 1
             ]
         ]);
@@ -79,17 +75,46 @@ class MembersController extends Controller
     {
         $item = $this->repository->detail($id);
         
-        $cateRep = new CategoriesRepository();
-        $categories = $cateRep->all();
-        
-        $branchRep = new BranchesRepository();
-        $branches = $branchRep->all();
+        $brands = Dictionary::$brand;
+        $teams = Dictionary::$teamTypes;
         
         return view($this->route . '.edit', [
             'route' => $this->route,
-            'categories' => isset($categories['list']) ? $categories['list'] : [],
-            'branches' => isset($branches['list']) ? $branches['list'] : [],
+            'brands' => $brands,
+            'teams' => $teams,
             'item' => $item
         ]);
+    }
+    
+    /**
+     * 修改 put
+     *
+     * @param Request $request
+     * @param int $id
+     */
+    public function update(Request $request, $id)
+    {
+        $data = $request->input('Record');
+        
+        $data['image'] = $this->upload($request);
+        
+        $response = $this->repository->update($id, $data);
+        
+        return redirect()->route($this->route . '.index');
+    }
+    
+    /**
+     * 新增 post
+     *
+     * @param Request $request
+     */
+    public function store(Request $request)
+    {
+        $data = $request->input('Record');
+        $data['image'] = $this->upload($request);
+        
+        $response = $this->repository->store($data);
+        
+        return redirect()->route($this->route . '.index');
     }
 }

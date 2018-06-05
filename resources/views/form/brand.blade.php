@@ -2,8 +2,8 @@
 <div class="col-md-10">
     <select name="Record[brand_id]" class="form-control" >
         <option value="">请选择</option>
-        @foreach($brands as $brand)
-        <option value="{{ $brand['id'] }}" @if(!empty($item['brand_id']) && $brand['id'] == $item['brand_id'])) selected="selected" @endif>{{ $brand['user_profile']['username'] }}</option>
+        @foreach($brands as $key => $brand)
+        <option value="{{ $key }}" @if(!empty($item['brand_id']) && $key == $item['brand_id'])) selected="selected" @endif>{{ $brand }}</option>
         @endforeach
     </select>
 </div>

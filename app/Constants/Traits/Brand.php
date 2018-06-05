@@ -2,11 +2,14 @@
 
 namespace App\Constants\Traits;
 
-class Brand
+use Constants;
+
+trait Brand
 {
-    const BRAND = [
+    public static $brand = [
         1 => '齐天大圣',
         2 => '口袋猫',
         3 => '童画镇',
     ];
+    
 }
