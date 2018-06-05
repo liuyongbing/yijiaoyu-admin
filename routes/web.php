@@ -31,6 +31,8 @@ Route::post('/attachment/upload', 'AttachmentController@upload')->name('attachme
 Route::get('/attachment/demo', 'AttachmentController@demo')->name('attachment.demo');
 //Branch(分馆)
 Route::resource('branches', 'BranchesController');
+//Category(分类)
+Route::resource('categories', 'CategoryController');
 //Course(课程)
 Route::resource('courses', 'CoursesController');
 //Grade(班级)

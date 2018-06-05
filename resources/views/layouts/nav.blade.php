@@ -31,6 +31,9 @@
                         <li class="{{ in_array(Route::currentRouteName(), ['news.index', 'news.edit', 'news.add']) ? 'active' : '' }}">
                             <a href="{{ route('news.index') }}">{{ trans('models.news') }}管理</a>
                         </li>
+                        <li class="{{ in_array(Route::currentRouteName(), ['categories.index', 'categories.edit', 'categories.add']) ? 'active' : '' }}">
+                            <a href="{{ route('categories.index') }}">{{ trans('models.categories') }}管理</a>
+                        </li>
                         @if (App\Constants\Dictionary::ACCOUNT_TYPE['ADMINISTRATOR'] == $accountType)
                         <li class="{{ in_array(Route::currentRouteName(), ['accounts.index', 'accounts.edit', 'accounts.add']) ? 'active' : '' }}">
                             <a href="{{ route('accounts.index') }}">{{ trans('models.accounts') }}管理</a>
