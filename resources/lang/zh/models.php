@@ -11,6 +11,7 @@ return [
     
     'accounts' => '账号',
     'apply' => '加盟申请',
+    'banner' => 'Banner',
     'branches' => '分馆',
     'categories' => '分类',
     'courses' => '课程',

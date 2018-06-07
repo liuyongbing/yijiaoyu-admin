@@ -4,7 +4,7 @@
     <body class="bootstrap-admin-with-small-navbar">
         @include('layouts.header')
 
-        @include('layouts.nav')
+        @include('include.nav')
 
         <div class="container">
             <div class="row">

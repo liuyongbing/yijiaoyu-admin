@@ -133,7 +133,7 @@ class Controller extends BaseController
      * @param Request $request
      * @return mixed
      */
-    public function upload(Request $request)
+    public function upload(Request $request, $filetype = 'courseware')
     {
         $filename = $request->input('Record')['image'];
         
@@ -145,7 +145,7 @@ class Controller extends BaseController
                 'filename' => $file['name']
             ];
             $repository = new AttachmentRepository();
-            $repository->setFiletype('courseware');
+            $repository->setFiletype($filetype);
             $result = $repository->upload($data);
             if (!empty($result['filename'])) {
                 $filename = $result['filename'];
