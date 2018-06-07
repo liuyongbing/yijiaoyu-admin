@@ -72,6 +72,14 @@ class Controller extends BaseController
         
         $response = $this->repository->update($id, $data);
         
+        if ('error' == $response['status'])
+        {
+            $rules = ['api_error' => 'string'];
+            $messages = ['string' => $response['message']];
+            
+            return $this->showError($request, $rules, $messages);
+        }
+        
         return redirect()->route($this->route . '.index');
     }
     
@@ -160,5 +168,18 @@ class Controller extends BaseController
     public function response($response)
     {
         return $response;
+    }
+    
+    /**
+     * 
+     * @param Request $request
+     * @param array $rules
+     * @param array $messages
+     */
+    protected function showError(Request $request, $rules, $messages)
+    {
+        return $this->validate($request, $rules, $messages);
+        
+        ;
     }
 }
