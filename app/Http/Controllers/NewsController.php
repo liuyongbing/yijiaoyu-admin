@@ -54,15 +54,11 @@ class NewsController extends Controller
     public function create(Request $request)
     {
         $cateRep = new CategoriesRepository();
-        $categories = $cateRep->all();
-        
-        $branchRep = new BranchesRepository();
-        $branches = $branchRep->all();
+        $categories = $cateRep->all(['status' => 1]);
         
         return view($this->route . '.add', [
             'route' => $this->route,
             'categories' => isset($categories['list']) ? $categories['list'] : [],
-            'branches' => isset($branches['list']) ? $branches['list'] : [],
             'item' => [
                 'content' => '',
                 'status' => 1
@@ -80,15 +76,10 @@ class NewsController extends Controller
         $item = $this->repository->detail($id);
         
         $cateRep = new CategoriesRepository();
-        $categories = $cateRep->all();
-        
-        $branchRep = new BranchesRepository();
-        $branches = $branchRep->all();
-        
+        $categories = $cateRep->all(['status' => 1]);
         return view($this->route . '.edit', [
             'route' => $this->route,
             'categories' => isset($categories['list']) ? $categories['list'] : [],
-            'branches' => isset($branches['list']) ? $branches['list'] : [],
             'item' => $item
         ]);
     }
