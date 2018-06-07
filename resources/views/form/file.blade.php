@@ -15,18 +15,22 @@
         {{ trans('inputs.image_view') }}
     </label>
     <div id="images_viewer" class="col-md-10">
+    @if (isset($show_images_viewer))
         <img src="{{ $item['image_url'] }}" alt="{{ $item['title'] }}" width="200" height="100" />
         <a href="javascript:;" class="btn btn-primary btn-sm" id="btn_images_viewer">
             <i class="glyphicon glyphicon-view glyphicon-white"></i> {{ trans('actions.view_image') }}
         </a>
+    @else
+        <img src="{{ $item['image_url'] }}" />
+    @endif
     </div>
 </div>
 @endif
 
 @section('style')
-
-@endsection
 <link href="{{ asset(elixir('third/dist/viewer.min.css')) }}{{ $STATIC_VERSION }}" rel="stylesheet">
+@endsection
+
 @section('script')
 <script type="text/javascript" src="{{ asset(elixir('third/dist/viewer.min.js')) }}{{ $STATIC_VERSION }}"></script>
 <script type="text/javascript">

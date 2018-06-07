@@ -19,7 +19,7 @@
     
     <div class="form-group">
         <!--图片-->
-        @include('form.file')
+        @include('form.file', ['show_images_viewer' => 1])
     </div>
     
     <div class="form-group">
