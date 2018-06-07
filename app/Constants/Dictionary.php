@@ -2,8 +2,14 @@
 
 namespace App\Constants;
 
+use App\Constants\Traits\Brand;
+use App\Constants\Traits\TeamTypes;
+
 class Dictionary
 {
+    use Brand;//品牌
+    use TeamTypes;//团队类型
+    
     const PAGE_SIZE = 10;//页容量
     
     const ACCOUNT_TYPE = [

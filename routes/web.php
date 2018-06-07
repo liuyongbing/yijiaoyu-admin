@@ -37,6 +37,8 @@ Route::resource('categories', 'CategoryController');
 Route::resource('courses', 'CoursesController');
 //Grade(班级)
 Route::resource('grades', 'GradesController');
+//Members(团队成员)
+Route::resource('members', 'MembersController');
 //News(资讯)
 Route::resource('news', 'NewsController');
 //SMS(短信)
