@@ -38,6 +38,11 @@
                             <a href="{{ route('categories.index') }}">{{ trans('models.categories') }}管理</a>
                         </li>
                         
+                        <!--Section-->
+                        <li class="{{ in_array(Route::currentRouteName(), ['sections.index', 'sections.edit', 'sections.add']) ? 'active' : '' }}">
+                            <a href="{{ route('sections.index') }}">{{ trans('models.sections') }}管理</a>
+                        </li>
+                        
                         @if (App\Constants\Dictionary::ACCOUNT_TYPE['ADMINISTRATOR'] == $accountType)
                         <!--账号-->
                         <li class="{{ in_array(Route::currentRouteName(), ['accounts.index', 'accounts.edit', 'accounts.add']) ? 'active' : '' }}">

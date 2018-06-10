@@ -43,6 +43,8 @@ Route::resource('grades', 'GradesController');
 Route::resource('members', 'MembersController');
 //News(资讯)
 Route::resource('news', 'NewsController');
+//Sections(网页版块)
+Route::resource('sections', 'SectionController');
 //SMS(短信)
 Route::post('/sms/send', 'SmsController@send')->name('sms.send');
 //Teaching(课件)
