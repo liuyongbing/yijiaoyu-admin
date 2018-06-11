@@ -10,7 +10,7 @@
         toolbars: [
             ['undo', 'redo', '|' , 'bold', 'italic', 'underline', 'removeformat',
                 'formatmatch', 'autotypeset', '|', 'justifyleft', 'justifyright',
-                'justifycenter', 'justifyjustify', '|', 'customstyle', 'paragraph', 'fontfamily',
+                'justifycenter', 'justifyjustify', '|', 'paragraph', 'fontfamily',
                 'fontsize', '|', 'forecolor', 'backcolor', 'insertorderedlist', '|', 'simpleupload', 
             ]
         ],
