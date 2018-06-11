@@ -19,8 +19,8 @@
     </div>
     
     <div class="form-group">
-        <!--年份-->
-        @include('form.year')
+        <!--自定义发布时间-->
+        @include('form.published_at')
     </div>
     
     <div class="form-group">

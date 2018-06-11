@@ -13,6 +13,18 @@ $(function() {
             $("form select[name='company_id']").parents(".form-group").hide();
         }
     });
+    
+    // 日期选择插件
+    $('.datepicker').datepicker({
+        // language: "zh-CN",
+        // autoclose: true,            //选中之后自动隐藏日期选择框
+        // clearBtn: true,             //清除按钮
+        // todayBtn: true,             //今日按钮
+        dateFormat: "yy-mm-dd",        //日期格式
+        changeMonth: true,
+        changeYear: true
+    });
+    
     $(document).off('click.bs.dropdown.data-api');
     var $dropdownLi = $('.navbar-nav >li');
 
