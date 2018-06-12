@@ -40,7 +40,7 @@ class TeachingsController extends Controller
         return view($this->route . '.list', [
             'route' => $this->route,
             'items' => isset($results['list']) ? $results['list'] : [],
-            'filters' => [],
+            'filters' => $params,
             'courseId' => $courseId,
             'pagination' => [
                 'route' => $this->route . '.index',
