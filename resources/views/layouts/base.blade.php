@@ -33,6 +33,7 @@
     <script type="text/javascript" src="{{ asset(elixir('js/app.js')) }}{{ $STATIC_VERSION }}"></script>
     <script type="text/javascript" src="{{ asset(elixir('third/bootstrap-treeview.min.js')) }}{{ $STATIC_VERSION }}"></script>
     <script type="text/javascript" src="{{ asset(elixir('third/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')) }}{{ $STATIC_VERSION }}"></script>
+    <script type="text/javascript" src="{{ asset(elixir('third/bootstrap-datepicker/dist/locales/bootstrap-datepicker.zh-CN.min.js')) }}{{ $STATIC_VERSION }}"></script>
     <script type="text/javascript" src="{{ asset(elixir('ueditor/ueditor.config.js')) }}{{ $STATIC_VERSION }}"></script>
     <script type="text/javascript" src="{{ asset(elixir('ueditor/ueditor.all.js')) }}{{ $STATIC_VERSION }}"></script>
     @yield('script')

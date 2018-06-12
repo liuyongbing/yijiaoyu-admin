@@ -16,11 +16,11 @@ $(function() {
     
     // 日期选择插件
     $('.datepicker').datepicker({
-        // language: "zh-CN",
-        // autoclose: true,            //选中之后自动隐藏日期选择框
+        language: "zh-CN",
+        autoclose: true,            //选中之后自动隐藏日期选择框
         // clearBtn: true,             //清除按钮
         // todayBtn: true,             //今日按钮
-        dateFormat: "yy-mm-dd",        //日期格式
+        format: "yyyy-mm-dd",        //日期格式
         changeMonth: true,
         changeYear: true
     });
