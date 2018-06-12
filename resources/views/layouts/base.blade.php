@@ -16,6 +16,7 @@
     <!-- Styles -->
     <link href="{{ asset(elixir('css/app.css')) }}{{ $STATIC_VERSION }}" rel="stylesheet">
     <link href="{{ asset(elixir('third/bootstrap-treeview.min.css')) }}{{ $STATIC_VERSION }}" rel="stylesheet">
+    <link href="{{ asset(elixir('third/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')) }}{{ $STATIC_VERSION }}" rel="stylesheet">
     @yield('style')
 
     <!-- Scripts -->
@@ -30,8 +31,10 @@
     <!-- Scripts -->
     <script type="text/javascript" src="{{ asset(elixir('js/jquery-3.1.0.min.js')) }}{{ $STATIC_VERSION }}"></script>
     <script type="text/javascript" src="{{ asset(elixir('js/app.js')) }}{{ $STATIC_VERSION }}"></script>
+    <script type="text/javascript" src="{{ asset(elixir('third/bootstrap-treeview.min.js')) }}{{ $STATIC_VERSION }}"></script>
+    <script type="text/javascript" src="{{ asset(elixir('third/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')) }}{{ $STATIC_VERSION }}"></script>
+    <script type="text/javascript" src="{{ asset(elixir('third/bootstrap-datepicker/dist/locales/bootstrap-datepicker.zh-CN.min.js')) }}{{ $STATIC_VERSION }}"></script>
     <script type="text/javascript" src="{{ asset(elixir('ueditor/ueditor.config.js')) }}{{ $STATIC_VERSION }}"></script>
     <script type="text/javascript" src="{{ asset(elixir('ueditor/ueditor.all.js')) }}{{ $STATIC_VERSION }}"></script>
-    <script type="text/javascript" src="{{ asset(elixir('third/bootstrap-treeview.min.js')) }}{{ $STATIC_VERSION }}"></script>
     @yield('script')
 </html>

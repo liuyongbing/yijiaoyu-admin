@@ -38,6 +38,7 @@ return [
     'page_number' => '页码',
     'position' => '位置',
     'province_city_area' => '省/市/区',
+    'published_at' => '自定义发布时间',
     'remark' => '备注',
     'summary' => '简介',
     'sort' => '排序',
