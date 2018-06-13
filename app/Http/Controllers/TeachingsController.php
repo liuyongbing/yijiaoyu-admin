@@ -27,6 +27,7 @@ class TeachingsController extends Controller
         
         $page = $request->input('page', 1);
         $size = Dictionary::PAGE_SIZE;
+        $offset = ($page - 1) * $size;
         
         $params = [
             'course_id' => $courseId
@@ -35,7 +36,7 @@ class TeachingsController extends Controller
             'class_number' => 'asc',
             'sort' => 'asc',
         ];
-        $results = $this->repository->list($params, $page, $size, $orderBy);
+        $results = $this->repository->list($params, $offset, $size, $orderBy);
         
         return view($this->route . '.list', [
             'route' => $this->route,

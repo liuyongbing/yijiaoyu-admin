@@ -24,6 +24,7 @@ class MembersController extends Controller
     {
         $page = $request->input('page', 1);
         $size = Dictionary::PAGE_SIZE;
+        $offset = ($page-1) * $size;
         
         $params = [];
         $orderBy = [
@@ -31,7 +32,7 @@ class MembersController extends Controller
             'team_type' => 'asc',
             'sort' => 'asc',
         ];
-        $results = $this->repository->list($params, $page, $size, $orderBy);
+        $results = $this->repository->list($params, $offset, $size, $orderBy);
         
         return view($this->route . '.list', [
             'route' => $this->route,

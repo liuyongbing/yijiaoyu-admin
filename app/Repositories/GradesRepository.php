@@ -18,9 +18,9 @@ class GradesRepository extends Repository
      * @param array $params
      * @return array
      */
-    public function list($params = [], $page = 1, $size = 10, $order = 'sort')
+    public function list($params = [], $offset = 0, $size = 10, $order = 'sort')
     {
-        $params['page'] = $page;
+        $params['offset'] = $offset;
         $params['size'] = $size;
         $params['order'] = $order;
         

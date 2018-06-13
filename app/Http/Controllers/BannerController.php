@@ -26,13 +26,14 @@ class BannerController extends Controller
     {
         $page = $request->input('page', 1);
         $size = Dictionary::PAGE_SIZE;
+        $offset = ($page - 1) * $size;
         
         $params = [];
         $orderBy = [
             'position_id' => 'asc',
             'sort' => 'asc',
         ];
-        $results = $this->repository->list($params, $page, $size, $orderBy);
+        $results = $this->repository->list($params, $offset, $size, $orderBy);
         
         return view($this->route . '.list', [
             'route' => $this->route,

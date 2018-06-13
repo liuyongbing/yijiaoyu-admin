@@ -24,8 +24,9 @@ class AccountsController extends Controller
     {
         $page = $request->input('page', 1);
         $size = Dictionary::PAGE_SIZE;
+        $offset = ($page - 1) * $size;
         
-        $results = $this->repository->list([], $page, $size);
+        $results = $this->repository->list([], $offset, $size);
         
         return view($this->route . '.list', [
             'route' => $this->route,

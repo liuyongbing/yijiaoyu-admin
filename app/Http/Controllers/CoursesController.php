@@ -27,12 +27,13 @@ class CoursesController extends Controller
         
         $page = $request->input('page', 1);
         $size = Dictionary::PAGE_SIZE;
+        $offset = ($page - 1) * $size;
         
         $params = [
             'grade_id' => $gradeId
         ];
         
-        $results = $this->repository->list($params, $page, $size);
+        $results = $this->repository->list($params, $offset, $size);
         
         return view($this->route . '.list', [
             'route' => $this->route,

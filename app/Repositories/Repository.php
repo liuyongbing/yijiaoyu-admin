@@ -24,9 +24,9 @@ class Repository
      * @param array $params
      * @return array
      */
-    public function list($params = [], $page = 1, $size = 10, $order = '')
+    public function list($params = [], $offset = 0, $size = 10, $order = '')
     {
-        $params['page'] = $page;
+        $params['offset'] = $offset;
         $params['size'] = $size;
         
         if (!empty($order)) 
