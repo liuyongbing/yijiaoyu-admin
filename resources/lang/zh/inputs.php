@@ -32,6 +32,7 @@ return [
     'image' => '图片',
     'image_view' => '图片预览',
     'investment_amount' => '投资金额',
+    'member_titles' => '抬头',
     'mobile' => '手机',
     'name' => '名称',
     'operation' => '操作',

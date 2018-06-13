@@ -19,6 +19,11 @@
     </div>
     
     <div class="form-group">
+        <!--抬头-->
+        @include('form.member_titles')
+    </div>
+    
+    <div class="form-group">
         <!--图片-->
         @include('form.file')
     </div>
