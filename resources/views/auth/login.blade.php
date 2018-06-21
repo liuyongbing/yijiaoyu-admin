@@ -104,7 +104,11 @@
             },
             dataType: 'json',
             success: function(response) {
-                
+                if (response.message != 'OK')
+                {
+                    alert(response.message);
+                    return false;
+                }
             }
         });
         var obj = $("#get_code");
