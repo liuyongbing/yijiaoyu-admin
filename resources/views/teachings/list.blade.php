@@ -72,7 +72,7 @@
 
 
 @section('style')
-    <link href="{{ asset(elixir('third/jquery-confirm/jquery-confirm.min.css')) }}{{ $STATIC_VERSION }}" rel="stylesheet">
+<link href="{{ asset(elixir('third/jquery-confirm/jquery-confirm.min.css')) }}{{ $STATIC_VERSION }}" rel="stylesheet">
 @endsection
 
 @section('script')
