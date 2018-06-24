@@ -81,4 +81,9 @@ class Repository
     {
         return $this->endPoint->all($params);
     }
+    
+    public function destroy($id)
+    {
+        return $this->endPoint->destroy($id);
+    }
 }

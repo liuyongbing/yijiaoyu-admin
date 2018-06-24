@@ -13,6 +13,7 @@ return [
     'cancel' => '取消',
     'confirm' => '确定',
     'detail' => '详情',
+    'delete' => '删除',
     'edit' => '编辑',
     'list' => '列表',
     'new_window' => '是否在新窗口打开',

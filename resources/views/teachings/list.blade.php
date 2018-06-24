@@ -44,6 +44,10 @@
                                                 <i class="glyphicon glyphicon-edit glyphicon-white"></i>
                                                 {{ trans('actions.edit') }}
                                             </a>
+                                            <button class="btn btn-delete btn-danger" data-id="{{ $item['id'] }}">
+                                                <i class="glyphicon glyphicon-delete glyphicon-white"></i>
+                                                {{ trans('actions.delete') }}
+                                            </button>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -64,4 +68,39 @@
             'filters' => $filters
         ])
     </div>
+@endsection
+
+@section('script')
+<script type="text/javascript">
+$(document).ready(function() {
+    $('.btn-delete').click(function() {
+        var confirm = confirm('确定删除吗?');
+alert(confirm);
+console.log(confirm);
+        if (confirm)
+        {
+            $.ajax({
+                method: "DELETE",
+                url: 'teachings/' + $(this).attr('data-id'),
+                data: { 
+                    '_token' : '{{ csrf_token() }}',
+                    'id' : $(this).attr('data-id'),
+                },
+                dataType: 'json',
+                success: function(response) {
+                    if (response.message == 'OK') {
+                        alert('删除成功!');
+                    }
+                    
+                    window.location.reload();
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown)
+                {
+                    alert('服务器错误');
+                }
+            })
+        }
+    });
+});
+</script>
 @endsection

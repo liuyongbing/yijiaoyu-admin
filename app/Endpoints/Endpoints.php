@@ -95,8 +95,14 @@ class Endpoints
      */
     public function all($params)
     {
-        //TODO: 实现
-        $response = ApiClient::get($this->api, $params);
+        $response = ApiClient::get($this->api . '/', $params);
+        
+        return $this->response($response);
+    }
+    
+    public function destroy($id)
+    {
+        $response = ApiClient::delete($this->api . '/' . $id, []);
         
         return $this->response($response);
     }

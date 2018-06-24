@@ -166,6 +166,11 @@ class Controller extends BaseController
         return $this->repository->detail($id);
     }
     
+    public function destroy($id)
+    {
+        return $this->repository->destroy($id);
+    }
+    
     public function response($response)
     {
         return $response;
