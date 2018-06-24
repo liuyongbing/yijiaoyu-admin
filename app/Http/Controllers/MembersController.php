@@ -22,11 +22,44 @@ class MembersController extends Controller
      */
     public function index(Request $request)
     {
+        $brandId = $request->input('brand_id', 0);
+        $teamType = $request->input('team_type', 0);
+        $username = $request->input('username', '');
+        $status = $request->input('status', '');
+        
         $page = $request->input('page', 1);
         $size = Dictionary::PAGE_SIZE;
         $offset = ($page-1) * $size;
         
+        $brands = Dictionary::$brand;
+        $teams = Dictionary::$teamTypes;
+        
+        $filters = [
+            'brand_id' => 0,
+            'team_type' => 0,
+            'username' => '',
+            'status' => '',
+        ];
+        
         $params = [];
+        if (!empty($brandId))
+        {
+            $params['brand_id'] = $brandId;
+        }
+        if (!empty($teamType))
+        {
+            $params['team_type'] = $teamType;
+        }
+        if (!empty($username))
+        {
+            $params['username'] = $username;
+        }
+        if (is_numeric($status))
+        {
+            $params['status'] = $status;
+        }
+        $filters = array_merge($filters, $params);
+        
         $orderBy = [
             'brand_id' => 'asc',
             'team_type' => 'asc',
@@ -37,7 +70,9 @@ class MembersController extends Controller
         return view($this->route . '.list', [
             'route' => $this->route,
             'items' => isset($results['list']) ? $results['list'] : [],
-            'filters' => [],
+            'brands' => $brands,
+            'teams' => $teams,
+            'filters' => $filters,
             'pagination' => [
                 'route' => $this->route . '.index',
                 'page' => $page,

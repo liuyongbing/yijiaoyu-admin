@@ -17,6 +17,7 @@ return [
     'list' => '列表',
     'new_window' => '是否在新窗口打开',
     'save' => '保存',
+    'search' => '搜索',
     'submit' => '提交',
     'view' => '查看',
     'view_image' => '查看原图',

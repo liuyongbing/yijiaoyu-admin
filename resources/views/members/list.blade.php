@@ -13,6 +13,32 @@
             </div>
         </div>
         <br />
+        
+        <div class="row">
+            <div class="col-md-12">
+                <form class="form-inline" action="{{ route($route . '.index') }}">
+                    <i class="glyphicon glyphicon-search"></i>
+
+                    <!--品牌-->
+                    @include('form.search.brand', [ 'style' => ['left' => 0, 'width' => 211]])
+                    
+                    <!--团队-->
+                    @include('form.search.team', [ 'style' => ['left' => 20, 'width' => 211]])
+                    
+                    <!--姓名-->
+                    @include('form.search.username', [ 'style' => ['left' => 20, 'width' => 211]])
+                    
+                    <!--状态-->
+                    @include('form.search.status', [ 'style' => ['left' => 20, 'width' => 211]])
+                    
+                    <button class="btn btn-primary">
+                        <i class="glyphicon glyphicon-search glyphicon-white"></i>
+                        {{ trans('actions.search') }}
+                    </button>
+                </form>
+            </div>
+        </div>
+        
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
