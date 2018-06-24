@@ -70,36 +70,63 @@
     </div>
 @endsection
 
+
+@section('style')
+    <link href="{{ asset(elixir('third/jquery-confirm/jquery-confirm.min.css')) }}{{ $STATIC_VERSION }}" rel="stylesheet">
+@endsection
+
 @section('script')
+<script type="text/javascript" src="{{ asset(elixir('third/jquery-confirm/jquery-confirm.min.js')) }}{{ $STATIC_VERSION }}"></script>
 <script type="text/javascript">
 $(document).ready(function() {
     $('.btn-delete').click(function() {
-        var confirm = confirm('确定删除吗?');
-alert(confirm);
-console.log(confirm);
-        if (confirm)
-        {
-            $.ajax({
-                method: "DELETE",
-                url: 'teachings/' + $(this).attr('data-id'),
-                data: { 
-                    '_token' : '{{ csrf_token() }}',
-                    'id' : $(this).attr('data-id'),
-                },
-                dataType: 'json',
-                success: function(response) {
-                    if (response.message == 'OK') {
-                        alert('删除成功!');
+        var item_id = $(this).attr('data-id');
+        $.confirm({
+            title: '系统提示',
+            content: '确认要删除吗？',
+            type:'red',
+            icon:'glyphicon glyphicon-question-sign',
+            buttons: {
+                ok: {
+                    text: '确认',
+                    btnClass: 'btn-primary',
+                    action: function(){
+                        $.ajax({
+                            method: "DELETE",
+                            url: 'teachings/' + item_id,
+                            data: { 
+                                '_token' : '{{ csrf_token() }}',
+                                'id' : item_id,
+                            },
+                            dataType: 'json',
+                            success: function(response) {
+                                if (response.message == 'OK') {
+                                    $.alert({
+                                        type:'green',
+                                        title: '系统提示',
+                                        content: '删除成功',
+                                        icon:'glyphicon glyphicon-info-sign'
+                                    });
+                                }
+                                
+                                window.location.reload();
+                            },
+                            error: function (XMLHttpRequest, textStatus, errorThrown)
+                            {
+                                showNotice('服务器错误');
+                            }
+                        })
                     }
-                    
-                    window.location.reload();
                 },
-                error: function (XMLHttpRequest, textStatus, errorThrown)
-                {
-                    alert('服务器错误');
-                }
-            })
-        }
+                cancel: {
+                    text: '取消',
+                    btnClass: 'btn-primary',
+                    action: function(){
+                        // button action.
+                    }
+                },
+            }
+        });
     });
 });
 </script>
