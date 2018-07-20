@@ -15,6 +15,7 @@ return [
     'branches' => '分馆',
     'categories' => '分类',
     'courses' => '课程',
+    'coursewares' => '课件',
     'grades' => '班级',
     'members' => '人物品牌',
     'news' => '资讯',

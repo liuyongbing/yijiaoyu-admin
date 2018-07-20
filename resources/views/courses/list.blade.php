@@ -46,7 +46,7 @@
                                                 <i class="glyphicon glyphicon-edit glyphicon-white"></i>
                                                 {{ trans('actions.edit') }}
                                             </a>
-                                            <a href="{{ route('teachings.index', ['course_id' => $item['id']]) }}" target="_blank" class="btn btn-sm btn-primary">
+                                            <a href="{{ route('coursewares.index', ['course_id' => $item['id']]) }}" target="_blank" class="btn btn-sm btn-primary">
                                                 <i class="glyphicon glyphicon-list glyphicon-white"></i>
                                                 {{ trans('actions.view') }}{{ trans('models.teachings') }}
                                             </a>

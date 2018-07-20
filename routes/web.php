@@ -37,6 +37,8 @@ Route::resource('branches', 'BranchesController');
 Route::resource('categories', 'CategoryController');
 //Course(课程)
 Route::resource('courses', 'CoursesController');
+//Course(课件)
+Route::resource('coursewares', 'CoursewaresController');
 //Grade(班级)
 Route::resource('grades', 'GradesController');
 //Members(团队成员)
