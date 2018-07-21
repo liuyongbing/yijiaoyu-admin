@@ -79,6 +79,9 @@ class CoursewaresController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->input('Record');
+        
+        $data['file_ppt'] = $this->upload($request);
+        
         $response = $this->repository->update($id, $data);
 
         return redirect()->route($this->route . '.index', [
@@ -121,6 +124,20 @@ class CoursewaresController extends Controller
         
         return redirect()->route($this->route . '.index', [
             'course_id' => $data['course_id']
+        ]);
+    }
+    
+    /**
+     * 查看
+     *
+     * @param int $id
+     */
+    public function show($id)
+    {
+        $detail = $this->repository->detail($id);
+        
+        return view($this->route . '.detail', [
+            'detail' => $detail
         ]);
     }
 }

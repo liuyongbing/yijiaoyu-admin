@@ -42,10 +42,10 @@
                                                 <i class="glyphicon glyphicon-edit glyphicon-white"></i>
                                                 {{ trans('actions.edit') }}
                                             </a>
-                                            <button class="btn btn-delete btn-danger" data-id="{{ $item['id'] }}">
-                                                <i class="glyphicon glyphicon-delete glyphicon-white"></i>
-                                                {{ trans('actions.delete') }}
-                                            </button>
+                                            <a href="{{ route($route . '.show', $item['id']) }}" target="_blank" class="btn btn-sm btn-primary">
+                                                <i class="glyphicon glyphicon-detail glyphicon-white"></i>
+                                                {{ trans('actions.view_ppt') }}
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach

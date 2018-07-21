@@ -22,6 +22,6 @@ return [
     'submit' => '提交',
     'view' => '查看',
     'view_image' => '查看原图',
-//     '' => '',
+    'view_ppt' => '查看课件PPT',
 
 ];

@@ -13,18 +13,8 @@
     </div>
     
     <div class="form-group">
-        <!--内容-->
-        @include('form.contents_ueditor_teaching')
-    </div>
-    
-    <div class="form-group">
-        <!--页码-->
-        @include('form.page_number')
-    </div>
-    
-    <div class="form-group">
-        <!--状态-->
-        @include('form.status')
+        <!--课件:PPT-->
+        @include('form.upload_ppt')
     </div>
     
     <div class="form-group">
