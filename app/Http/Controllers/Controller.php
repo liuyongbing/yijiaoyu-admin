@@ -134,11 +134,11 @@ class Controller extends BaseController
      * @param Request $request
      * @return mixed
      */
-    public function upload(Request $request, $filetype = 'courseware')
+    public function upload(Request $request, $filetype = 'courseware', $fileInput = 'upload_file')
     {
         $filename = $request->input('Record')['image'];
         
-        $file = $_FILES['upload_file'];
+        $file = $_FILES[$fileInput];
         if (!empty($file['name'])) {
             $data = [
                 'name'     => 'upload_file',

@@ -18,6 +18,11 @@
     </div>
     
     <div class="form-group">
+        <!--课件:音乐-->
+        @include('form.upload_music')
+    </div>
+    
+    <div class="form-group">
         @include('form.submit', ['route' => $route . '.index'])
     </div>
     
