@@ -120,6 +120,8 @@ class CoursewaresController extends Controller
     {
         $data = $request->input('Record');
         
+        $data['file_ppt'] = $this->upload($request);
+        
         $response = $this->repository->store($data);
         
         return redirect()->route($this->route . '.index', [
