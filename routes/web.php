@@ -45,6 +45,14 @@ Route::resource('grades', 'GradesController');
 Route::resource('members', 'MembersController');
 //News(资讯)
 Route::resource('news', 'NewsController');
+
+//品牌课件
+Route::resource('taekwondo', 'TaekwondoController');//跆拳道:齐天大圣
+Route::resource('pocketcat', 'PocketcatController');//舞蹈:口袋猫
+Route::resource('town', 'TownController');//绘画:童画镇
+Route::resource('skating', 'SkatingController');//轮滑:学会玩
+Route::resource('basketball', 'BasketballController');//晓虎队:晓虎队
+
 //SMS(短信)
 Route::post('/sms/send', 'SmsController@send')->name('sms.send');
 //Teaching(课件)

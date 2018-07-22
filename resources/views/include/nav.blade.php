@@ -9,13 +9,50 @@
                 </div>
                 <div class="collapse navbar-collapse main-navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <!--课件-->
+                        <!--课件:齐天大圣(跆拳道)-->
                         <li class="{{ in_array(Route::currentRouteName(), [
-                            'grades.index', 'grades.edit', 'grades.add',
-                            'courses.index', 'courses.edit', 'courses.add',
-                            'teachings.index', 'teachings.edit', 'teachings.add'
+                            'grades.index', 'grades.edit', 'grades.create',
+                            'courses.index', 'courses.edit', 'courses.create',
+                            'coursewares.index', 'coursewares.edit', 'coursewares.create',
+                            'taekwondo.index'
                         ]) ? 'active' : '' }}">
-                            <a href="{{ route('grades.index') }}">{{ trans('brand.taiquandao') }}管理</a>
+                            <a href="{{ route('taekwondo.index') }}">{{ trans('brand.taekwondo') }}</a>
+                        </li>
+                        <!--课件:口袋猫(舞蹈)-->
+                        <li class="{{ in_array(Route::currentRouteName(), [
+                            'grades.index', 'grades.edit', 'grades.create',
+                            'courses.index', 'courses.edit', 'courses.create',
+                            'coursewares.index', 'coursewares.edit', 'coursewares.create',
+                            'pocketcat.index'
+                        ]) ? 'active' : '' }}">
+                            <a href="{{ route('pocketcat.index') }}">{{ trans('brand.pocketcat') }}</a>
+                        </li>
+                        <!--课件:童画镇(绘画)-->
+                        <li class="{{ in_array(Route::currentRouteName(), [
+                            'grades.index', 'grades.edit', 'grades.create',
+                            'courses.index', 'courses.edit', 'courses.create',
+                            'coursewares.index', 'coursewares.edit', 'coursewares.create',
+                            'town.index'
+                        ]) ? 'active' : '' }}">
+                            <a href="{{ route('town.index') }}">{{ trans('brand.town') }}</a>
+                        </li>
+                        <!--课件:学会玩(轮滑)-->
+                        <li class="{{ in_array(Route::currentRouteName(), [
+                            'grades.index', 'grades.edit', 'grades.create',
+                            'courses.index', 'courses.edit', 'courses.create',
+                            'coursewares.index', 'coursewares.edit', 'coursewares.create',
+                            'skating.index'
+                        ]) ? 'active' : '' }}">
+                            <a href="{{ route('skating.index') }}">{{ trans('brand.skating') }}</a>
+                        </li>
+                        <!--课件:晓虎队(篮球)-->
+                        <li class="{{ in_array(Route::currentRouteName(), [
+                            'grades.index', 'grades.edit', 'grades.create',
+                            'courses.index', 'courses.edit', 'courses.create',
+                            'coursewares.index', 'coursewares.edit', 'coursewares.create',
+                            'basketball.index'
+                        ]) ? 'active' : '' }}">
+                            <a href="{{ route('basketball.index') }}">{{ trans('brand.basketball') }}</a>
                         </li>
                         
                         <!--团队成员-->

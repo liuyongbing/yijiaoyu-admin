@@ -1,0 +1,1 @@
+<input name="Record[brand_id]" type="hidden" value="{{ $item['brand_id'] }}" />

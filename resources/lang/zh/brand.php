@@ -9,6 +9,9 @@ return [
     |
     */
     
-    'taiquandao' => '跆拳道',
-    //'' => '',
+    'taekwondo' => '齐天大圣',
+    'pocketcat' => '口袋猫',
+    'town' => '童画镇',
+    'skating' => '学会玩',
+    'basketball' => '晓虎队',
 ];
