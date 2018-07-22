@@ -24,11 +24,14 @@ class GradesController extends Controller
      */
     public function index(Request $request)
     {
+        $brandId = $request->input('brand_id', 0);
         $page = $request->input('page', 1);
         $size = Dictionary::PAGE_SIZE;
         $offset = ($page - 1) * $size;
         
-        $params = ['brand_id' => static::BRAND_ID];
+        $params = [
+            'brand_id' => !empty($brandId) ? $brandId : static::BRAND_ID
+        ];
         
         $results = $this->repository->list($params, $offset, $size);
         
@@ -79,7 +82,9 @@ class GradesController extends Controller
         
         $response = $this->repository->update($id, $data);
 
-        return redirect()->route($this->route . '.index');
+        return redirect()->route($this->route . '.index', [
+            'brand_id' => $data['brand_id']
+        ]);
     }
     
     /**
@@ -95,6 +100,8 @@ class GradesController extends Controller
         
         $response = $this->repository->store($data);
         
-        return redirect()->route($this->route . '.index');
+        return redirect()->route($this->route . '.index', [
+            'brand_id' => $data['brand_id']
+        ]);
     }
 }

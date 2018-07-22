@@ -23,7 +23,7 @@
     </div>
     
     <div class="form-group">
-        @include('form.hide_brand_id
+        @include('form.hide_brand_id')
         
         @include('form.submit', ['route' => 'grades.index'])
     </div>
