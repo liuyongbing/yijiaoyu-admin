@@ -42,6 +42,7 @@ return [
     'published_at' => '自定义发布时间',
     'upload_music' => '课件音乐',
     'upload_ppt' => '课件PPT',
+    'upload_ppt_filename' => 'PPT大文件名',
     'remark' => '备注',
     'summary' => '简介',
     'sort' => '排序',
