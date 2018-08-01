@@ -39,7 +39,7 @@ class GradesController extends Controller
             'route' => $this->route,
             'items' => isset($results['list']) ? $results['list'] : [],
             'filters' => [],
-            'brandId' => static::BRAND_ID,
+            'brandId' => $params['brand_id'],
             'pagination' => [
                 'route' => $this->route . '.index',
                 'page' => $page,
