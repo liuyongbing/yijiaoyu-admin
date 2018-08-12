@@ -61,7 +61,7 @@ class StudentsController extends Controller
         
         $orderBy = [
             'status' => 'desc',
-            'id' => 'asc',
+            'id' => 'desc',
         ];
         $results = $this->repository->list($params, $offset, $size, $orderBy);
         

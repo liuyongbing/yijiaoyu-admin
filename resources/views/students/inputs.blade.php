@@ -44,6 +44,16 @@
     </div>
     
     <div class="form-group">
+        <!--父亲-->
+        @include('form.family_member', ['relation' => 1])
+    </div>
+    
+    <div class="form-group">
+        <!--母亲-->
+        @include('form.family_member', ['relation' => 2])
+    </div>
+    
+    <div class="form-group">
         <!--状态-->
         @include('form.status')
     </div>

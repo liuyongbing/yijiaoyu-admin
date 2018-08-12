@@ -27,6 +27,10 @@ return [
     'display_type' => '显示方式',
     'email' => '邮箱',
     'expiry_date' => '预计加盟时间',
+    'family_member' => [
+        1 => '父亲',
+        2 => '母新',
+    ],
     'gender' => '性别',
     'grade' => '班级',
     'id_number' => '身份证号',
