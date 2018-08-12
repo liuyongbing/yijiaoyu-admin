@@ -19,10 +19,6 @@
                 <form class="form-inline" action="{{ route($route . '.index') }}">
                     <i class="glyphicon glyphicon-search"></i>
 
-                    @include('form.search.brand', [ 'style' => ['left' => 0, 'width' => 211]])
-                    
-                    @include('form.search.team', [ 'style' => ['left' => 20, 'width' => 211]])
-                    
                     @include('form.search.username', [ 'style' => ['left' => 20, 'width' => 211]])
                     
                     @include('form.search.status', [ 'style' => ['left' => 20, 'width' => 211]])

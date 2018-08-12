@@ -86,16 +86,14 @@ class StudentsController extends Controller
      */
     public function create(Request $request)
     {
-        $brands = Dictionary::$brand;
-        $teams = Dictionary::$teamTypes;
+        $gender = Dictionary::$gender;
         
         return view($this->route . '.add', [
-            'route' => $this->route,
-            'brands' => $brands,
-            'teams' => $teams,
+            'gender' => $gender,
             'item' => [
                 'status' => 1
-            ]
+            ],
+            'route' => $this->route,
         ]);
     }
     
@@ -140,7 +138,6 @@ class StudentsController extends Controller
     public function store(Request $request)
     {
         $data = $request->input('Record');
-        $data['image'] = $this->upload($request);
         
         $response = $this->repository->store($data);
         
