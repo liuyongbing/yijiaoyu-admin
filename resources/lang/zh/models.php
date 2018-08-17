@@ -19,6 +19,7 @@ return [
     'grades' => '班级',
     'members' => '人物品牌',
     'news' => '资讯',
+    'students' => '学员',
     'teachings' => '课件',
     'trainers' => '教练',
 ];

@@ -75,6 +75,11 @@
                             <a href="{{ route('categories.index') }}">{{ trans('models.categories') }}管理</a>
                         </li>
                         
+                        <!--学员信息-->
+                        <li class="{{ in_array(Route::currentRouteName(), ['students.index', 'students.edit', 'students.add']) ? 'active' : '' }}">
+                            <a href="{{ route('students.index') }}">{{ trans('models.students') }}管理</a>
+                        </li>
+                        
                         @if (App\Constants\Dictionary::ACCOUNT_TYPE['ADMINISTRATOR'] == $accountType)
                         <!--账号-->
                         <li class="{{ in_array(Route::currentRouteName(), ['accounts.index', 'accounts.edit', 'accounts.add']) ? 'active' : '' }}">
