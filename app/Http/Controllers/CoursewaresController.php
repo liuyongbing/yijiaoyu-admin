@@ -81,7 +81,7 @@ class CoursewaresController extends Controller
         $data = $request->input('Record');
         
         $data['file_ppt'] = $this->upload($request);
-        $data['file_music'] = $this->upload($request, 'courseware', 'upload_music');
+        //$data['file_music'] = $this->upload($request, 'courseware', 'upload_music');
         
         $response = $this->repository->update($id, $data);
 
