@@ -16,6 +16,7 @@ return [
     'brand' => '品牌',
     'branch' => '分馆',
     'budget' => '预算',
+    'card_number' => '卡号',
     'category' => '分类',
     'city' => '城市',
     'class_total' => '总课时',

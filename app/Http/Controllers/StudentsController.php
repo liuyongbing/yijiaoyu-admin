@@ -22,9 +22,7 @@ class StudentsController extends Controller
      */
     public function index(Request $request)
     {
-        $brandId = $request->input('brand_id', 0);
-        $teamType = $request->input('team_type', 0);
-        $username = $request->input('username', '');
+        $name = $request->input('name', '');
         $status = $request->input('status', '');
         
         $page = $request->input('page', 1);
@@ -34,24 +32,14 @@ class StudentsController extends Controller
         $gender = Dictionary::$gender;
         
         $filters = [
-            'brand_id' => 0,
-            'team_type' => 0,
-            'username' => '',
+            'name' => '',
             'status' => '',
         ];
         
         $params = [];
-        if (!empty($brandId))
+        if (!empty($name))
         {
-            $params['brand_id'] = $brandId;
-        }
-        if (!empty($teamType))
-        {
-            $params['team_type'] = $teamType;
-        }
-        if (!empty($username))
-        {
-            $params['username'] = $username;
+            $params['name'] = $name;
         }
         if (is_numeric($status))
         {
